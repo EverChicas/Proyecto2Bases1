@@ -1,0 +1,22 @@
+﻿@model List<Rol_Usuario>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table>
+    <tr>
+        <td>id</td>
+        <td>Nombre</td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.RolUsuario</td>
+            <td>@item.Nombre</td>
+        </tr>
+    }
+
+</table>
