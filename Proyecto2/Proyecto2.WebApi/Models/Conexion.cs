@@ -11,11 +11,11 @@ namespace Proyecto2.WebApi.Models
         public static string CadenaConexion()
         {
             MySqlConnectionStringBuilder conn = new MySqlConnectionStringBuilder();
-            conn.Server = "localhost";
-            conn.Database = "proyecto2bases1";
-            conn.UserID = "root";
-            conn.Password = "chicas";
-            conn.IntegratedSecurity = false;
+            //conn.Server = "localhost";
+            //conn.Database = "proyecto2bases1";
+            //conn.UserID = "root";
+            //conn.Password = "chicas";
+            //conn.IntegratedSecurity = false;
             return conn.ToString();
         }
     }
