@@ -33,7 +33,7 @@ namespace Proyecto2.WebApi.Controllers
         }
 
         [HttpPost]
-        public void InsertarRolUsuario(Rol_Usuario rol)
+        public void InsertarRolUsuario(string rol)
         {
             using(MySqlConnection conection = new MySqlConnection(Conexion.CadenaConexion()))
             {
