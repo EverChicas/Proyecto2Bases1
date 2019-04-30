@@ -12,9 +12,9 @@ namespace Proyecto2.WebApi.Controllers
 {
     public class Rol_UsuarioController : ApiController
     {
+        [HttpGet]
         public IEnumerable<Rol_Usuario> Get()
         {
-
             List<Rol_Usuario> lista = new List<Rol_Usuario>();
             
             using(MySqlConnection conection = new MySqlConnection(Conexion.CadenaConexion()))
@@ -30,8 +30,22 @@ namespace Proyecto2.WebApi.Controllers
             }
 
             return lista;
-
         }
+
+        [HttpPost]
+        public void InsertarRolUsuario(Rol_Usuario rol)
+        {
+            using(MySqlConnection conection = new MySqlConnection(Conexion.CadenaConexion()))
+            {
+                conection.Open();
+                MySqlCommand command = new MySqlCommand("AGREGAR_ROL_USUARIO", conection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@NOMBRE",rol);
+                int res = command.ExecuteNonQuery();
+                conection.Close();
+            }
+        }
+
     }
 }
 

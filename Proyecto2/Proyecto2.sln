@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proyecto2.WebApi", "Proyect
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proyecto2.ClienteWeb", "Proyecto2.ClienteWeb\Proyecto2.ClienteWeb.csproj", "{83A3894D-2212-4028-88C1-EA87E094850D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Script", "Script", "{6DD9E484-685A-4681-8E88-4D16FA8EFCAA}"
+	ProjectSection(SolutionItems) = preProject
+		script base de datos.sql = script base de datos.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
