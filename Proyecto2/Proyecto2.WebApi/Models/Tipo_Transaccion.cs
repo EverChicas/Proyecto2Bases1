@@ -5,14 +5,14 @@ using System.Web;
 
 namespace Proyecto2.WebApi.Models
 {
-    public class Tipo_Tranzaccion
+    public class Tipo_Transaccion
     {
         public int TipoTranzaccion { get; set; }
         public string Nombre { get; set; }
 
-        public Tipo_Tranzaccion(int TipoTranzaccion,string nombre)
+        public Tipo_Transaccion(int TipoTranzaccion,string nombre)
         {
-            this.TipoTranzaccion = TipoTranzaccion;
+            this.TipoTransaccion = TipoTranzaccion;
             this.Nombre = nombre;
         }
     }

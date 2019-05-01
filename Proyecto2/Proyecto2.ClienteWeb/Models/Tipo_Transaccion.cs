@@ -5,9 +5,9 @@ using System.Web;
 
 namespace Proyecto2.ClienteWeb.Models
 {
-    public class Tipo_Tranzaccion
+    public class Tipo_Transaccion
     {
-        public int TipoTranzaccion { get; set; }
+        public int TipoTransaccion { get; set; }
         public string Nombre { get; set; }
     }
 }
