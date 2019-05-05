@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Script", "Script", "{6DD9E4
 	ProjectSection(SolutionItems) = preProject
 		base de datos.sql = base de datos.sql
 		cargar bd.sql = cargar bd.sql
+		procedimientos.sql = procedimientos.sql
 	EndProjectSection
 EndProject
 Global
