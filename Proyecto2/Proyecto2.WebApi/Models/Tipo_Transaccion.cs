@@ -7,12 +7,12 @@ namespace Proyecto2.WebApi.Models
 {
     public class Tipo_Transaccion
     {
-        public int TipoTranzaccion { get; set; }
+        public int TipoTransaccion { get; set; }
         public string Nombre { get; set; }
 
-        public Tipo_Transaccion(int TipoTranzaccion,string nombre)
+        public Tipo_Transaccion(int TipoTransaccion,string nombre)
         {
-            this.TipoTransaccion = TipoTranzaccion;
+            this.TipoTransaccion = TipoTransaccion;
             this.Nombre = nombre;
         }
     }

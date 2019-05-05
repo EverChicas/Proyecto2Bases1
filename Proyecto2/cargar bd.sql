@@ -4,10 +4,12 @@ insert into Rol_Usuario(Nombre) values('Contador');
 
 select * from rol_usuario;
 
-DELIMITER //
-CREATE PROCEDURE AGREGAR_ROL_USUARIO(IN NOMBRE VARCHAR(45))
-BEGIN
-INSERT INTO Rol_Usuario(Nombre) values(NOMBRE);
-END//
+
 
 CALL AGREGAR_ROL_USUARIO('SECRETARIA');
+
+-- USUARIO
+insert into usuario(Usuario,Nombre,Direccion,Telefono,Correo,Password,Rol_Usuario)
+values(1,'ever','guatemala','55421254','ever@admin.com','1234',1);
+
+call LOGIN_USUARIO(1,1234);
