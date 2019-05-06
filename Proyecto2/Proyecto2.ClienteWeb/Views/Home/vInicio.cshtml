@@ -1,4 +1,4 @@
-﻿@model Usuario
+﻿
 @{
     Layout = null;
 }
@@ -7,14 +7,12 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Inicio</title>
+    <title>INICIO</title>
     <link type="text/css" href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="~/Scripts/jquery-3.0.0.min.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
     <style>
         #login-div {
             position: absolute;
@@ -24,19 +22,13 @@
             padding: 10px 10px;
         }
     </style>
-
-
-
 </head>
 <body>
 
     <div class="jumbotron text-center" style="margin-bottom:0">
-        <h1>SISTEMA VENTAS</h1>
+        <h1>CONTROL DE VENTAS</h1>
         <p>Iniciar Sesión</p>
     </div>
-
-
-
     <div id="login-div">
         <ul class="pagination justify-content-center" style="margin:20px 0">
             <div class="container">
@@ -48,7 +40,7 @@
                     </div>
                     <div class="form-group">
                         <label for="pass">Contraseña:</label>
-                        <input type="password" name=pass class="form-control" id="pass" placeholder="Contraseña">
+                        <input type="password" name=password class="form-control" id="password" placeholder="Contraseña">
                     </div>
                     <input id="btn" name="btn" type="submit" value="Ingresar" class="btn btn-primary" />
                 }
@@ -57,3 +49,4 @@
     </div>
 </body>
 </html>
+
