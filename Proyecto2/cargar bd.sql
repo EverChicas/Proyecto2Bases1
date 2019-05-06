@@ -16,6 +16,8 @@ CALL AGREGAR_ROL_USUARIO('SECRETARIA');
 insert into usuario (Usuario, Nombre, Direccion, Telefono, Correo, Password, Rol_Usuario) values
 (100, 'Jose Ramirez', 'Guatemala', '59339524', 'admin@gmail.com', '123', 1);
 
+call CREAR_USUARIO('Bredly', 'Ciudad', '59339524', 'correo1@gmail.com', 5933, '123', 'Vendedor'); --PROCEDIMIENTO EN procedimientos.sql
+
 
 --LOGIN USUARIO
 DELIMITER //
@@ -25,6 +27,7 @@ SELECT *FROM usuario
 WHERE Usuario = USER
 and Password = PASS;
 END//
+
 call LOGIN_USUARIO(100, '123');
 
 
