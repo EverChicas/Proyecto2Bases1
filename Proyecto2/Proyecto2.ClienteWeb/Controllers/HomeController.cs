@@ -15,7 +15,7 @@ namespace Proyecto2.ClienteWeb.Controllers
         {
             return View();
         }
-
+        //LOGIN USUARIO
         [HttpPost]
         public ActionResult Autorizar(int user, string password)
         {
