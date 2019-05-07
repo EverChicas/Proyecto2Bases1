@@ -147,6 +147,8 @@
     <Compile Include="Controllers\AdministradorController.cs" />
     <Compile Include="Controllers\CerrarSesionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NuevoProductoController.cs" />
+    <Compile Include="Controllers\NuevoTipoCategoriaController.cs" />
     <Compile Include="Controllers\NuevoUsuarioController.cs" />
     <Compile Include="Controllers\PruebaController.cs" />
     <Compile Include="Controllers\VendedorController.cs" />
@@ -256,6 +258,8 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\NuevoUsuario\vNuevoUsuario.cshtml" />
+    <Content Include="Views\NuevoTipoCategoria\vNuevoTipoCategoria.cshtml" />
+    <Content Include="Views\NuevoProducto\vNuevoProducto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
