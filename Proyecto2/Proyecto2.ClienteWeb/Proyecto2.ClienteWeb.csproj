@@ -149,6 +149,8 @@
     <Compile Include="Controllers\CerrarCajaController.cs" />
     <Compile Include="Controllers\CerrarSesionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NuevoProductoController.cs" />
+    <Compile Include="Controllers\NuevoTipoCategoriaController.cs" />
     <Compile Include="Controllers\NuevoUsuarioController.cs" />
     <Compile Include="Controllers\PruebaController.cs" />
     <Compile Include="Controllers\VendedorController.cs" />
@@ -260,6 +262,8 @@
     <Content Include="Views\NuevoUsuario\vNuevoUsuario.cshtml" />
     <Content Include="Views\AbrirCaja\vAbrirCaja.cshtml" />
     <Content Include="Views\CerrarCaja\vCerrarCaja.cshtml" />
+    <Content Include="Views\NuevoProducto\vNuevoProducto.cshtml" />
+    <Content Include="Views\NuevoTipoCategoria\vNuevoTipoCategoria.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
