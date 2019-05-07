@@ -100,9 +100,11 @@
         @if (Session["USUARIO"] != null)
         {
             Proyecto2.ClienteWeb.Models.Usuario userLogueado = Session["USUARIO"] as Proyecto2.ClienteWeb.Models.Usuario;
+            Caja cajaAbierta = Session["CAJA"] as Caja;
             <div class="jumbotron text-center" style="margin-bottom:0">
                 <h1>Panel Administrador</h1>
                 <p>@userLogueado.Nombre - USUARIO: @userLogueado.Id_Usuario.ToString()</p>
+                
             </div>
 
             <div id="btn1-div">
@@ -140,10 +142,16 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td><button type="submit" class="btn btn-warning">Abrir</button></td>
-                        <td><button type="submit" class="btn btn-warning">Mov. Diario</button></td>
-                        <td><button type="submit" class="btn btn-warning">Cerrar</button></td>
-                        <td><button type="submit" class="btn btn-warning">Pago Servicio</button></td>
+                        @if (cajaAbierta == null)
+                        {
+                            <td><a href="@Url.Action("vAbrirCaja","AbrirCaja")" class="btn btn-warning">Abrir</a></td>
+                        }
+                        else
+                        {
+                            <td><button type="submit" class="btn btn-warning">Mov. Diario</button></td>
+                            <td><button type="submit" class="btn btn-warning">Cerrar</button></td>
+                            <td><button type="submit" class="btn btn-warning">Pago Servicio</button></td>
+                        }
 
                     </tr>
                 </table>

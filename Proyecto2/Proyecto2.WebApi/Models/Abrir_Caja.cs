@@ -8,11 +8,11 @@ namespace Proyecto2.WebApi.Models
     public class Abrir_Caja
     {
         public DateTime FechaHora { get; set; }
-        public int Monto { get; set; }
+        public double Monto { get; set; }
         public int Usuario { get; set; }
         public int Caja { get; set; }
 
-        public Abrir_Caja(DateTime fechaHora,int monto,int usuario,int caja)
+        public Abrir_Caja(DateTime fechaHora,double monto,int usuario,int caja)
         {
             this.FechaHora = fechaHora;
             this.Monto = monto;

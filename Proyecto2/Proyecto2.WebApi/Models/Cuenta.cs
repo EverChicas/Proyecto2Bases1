@@ -10,12 +10,12 @@ namespace Proyecto2.WebApi.Models
         public int cuenta { get; set; }
         public int NoFactura { get; set; }
         public DateTime FechaEmision { get; set; }
-        public int TotalFactura { get; set; }
-        public int SaldoFactura { get; set; }
+        public double TotalFactura { get; set; }
+        public double SaldoFactura { get; set; }
         public int Cliente { get; set; }
         public int EstadoCuenta { get; set; }
 
-        public Cuenta(int cuenta,int NoFactura,DateTime FechaEmision,int TotalFactura,int SaldoFactura,int Cliente,int EstadoCuenta)
+        public Cuenta(int cuenta,int NoFactura,DateTime FechaEmision,double TotalFactura,double SaldoFactura,int Cliente,int EstadoCuenta)
         {
             this.cuenta = cuenta;
             this.NoFactura = NoFactura;

@@ -10,12 +10,12 @@ namespace Proyecto2.WebApi.Models
         public int movimiento { get; set; }
         public DateTime FechaHora { get; set; }
         public string Descripcion { get; set; }
-        public int Monto { get; set; }
-        public int SaldoCaja { get; set; }
+        public double Monto { get; set; }
+        public double SaldoCaja { get; set; }
         public int Usuario { get; set; }
         public int Caja { get; set; }
 
-        public Movimiento(int movimiento,DateTime fechaHora,string descripcion,int monto,int saldoCaja,int usuario,int caja)
+        public Movimiento(int movimiento,DateTime fechaHora,string descripcion,double monto,double saldoCaja,int usuario,int caja)
         {
             this.movimiento = movimiento;
             this.FechaHora = fechaHora;

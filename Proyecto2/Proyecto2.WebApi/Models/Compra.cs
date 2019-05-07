@@ -9,15 +9,15 @@ namespace Proyecto2.WebApi.Models
     {
         public int compra { get; set; }
         public DateTime Fecha { get; set; }
-        public int PrecioUnidad { get; set; }
-        public int ValorCompra { get; set; }
+        public double PrecioUnidad { get; set; }
+        public double ValorCompra { get; set; }
         public int Cantidad { get; set; }
         public int NoFactura { get; set; }
         public int Producto { get; set; }
         public int Proveedor { get; set; }
         public int Usuario { get; set; }
 
-        public Compra(int compra,DateTime fecha,int precio,int valor,int cantidad,int noFactura,int producto,int proveedor,int usuario)
+        public Compra(int compra,DateTime fecha,double precio,double valor,int cantidad,int noFactura,int producto,int proveedor,int usuario)
         {
             this.compra = compra;
             this.Fecha = fecha;

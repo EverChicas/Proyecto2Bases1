@@ -18,16 +18,9 @@ insert into usuario (Usuario, Nombre, Direccion, Telefono, Correo, Password, Rol
 
 call CREAR_USUARIO('Bredly', 'Ciudad', '59339524', 'correo1@gmail.com', 5933, '123', 'Vendedor'); --PROCEDIMIENTO EN procedimientos.sql
 
-
---LOGIN USUARIO
-DELIMITER //
-CREATE PROCEDURE LOGIN_USUARIO(IN USER INTEGER, IN PASS VARCHAR(50))
-BEGIN
-SELECT *FROM usuario 
-WHERE Usuario = USER
-and Password = PASS;
-END//
-
-call LOGIN_USUARIO(100, '123');
-
+CALL CREAR_CAJA(1,1000);
+CALL CREAR_CAJA(2,1000);
+CALL CREAR_CAJA(3,1000);
+CALL CREAR_CAJA(4,1000);
+CALL CREAR_CAJA(5,1000);
 
