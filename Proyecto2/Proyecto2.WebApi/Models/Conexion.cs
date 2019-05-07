@@ -20,7 +20,7 @@ namespace Proyecto2.WebApi.Models
             conn.Server = "localhost";
             conn.Database = "proyecto2bases1";
             conn.UserID = "root";
-            conn.Password = "1234";
+            conn.Password = "bredly1994";
             
             /*
             conn.Server = "proyecto2bases1.curgdovy7biz.us-east-2.rds.amazonaws.com";
