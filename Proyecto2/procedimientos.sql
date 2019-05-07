@@ -150,3 +150,49 @@ BEGIN
 	AND TC.TIPO_CATEGORIA = CA.TIPO_CATEGORIA
 	AND PR.PRODUCTO = CA.PRODUCTO;
 END//
+
+------------ CREAR PRODUCTO
+DELIMITER //
+CREATE PROCEDURE CREAR_PRODUCTO(NOMBRE_PRODUCTO VARCHAR(100), PRECIO_PRODUCTO DOUBLE, U_DISPONIBLES INTEGER)
+BEGIN
+	DECLARE EXISTE INTEGER;
+	DECLARE RESULTADO INTEGER DEFAULT 0;
+	DECLARE ID INTEGER;
+	SET EXISTE = ID_PRODUCTO(NOMBRE_PRODUCTO);
+	IF EXISTE = -1 THEN
+		INSERT INTO PRODUCTO(NOMBRE, PRECIO) VALUES (NOMBRE_PRODUCTO, PRECIO_PRODUCTO);
+		SET ID = ID_PRODUCTO(NOMBRE_PRODUCTO);
+		INSERT INTO INVENTARIO(UNIDADES_DISPONIBLES, PRODUCTO) VALUES (U_DISPONIBLES, ID);
+		SET RESULTADO = 1;
+	END IF;
+	SELECT RESULTADO;
+END//
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------- DETALLES POR PRODUCTO
+DELIMITER //
+CREATE PROCEDURE DETALLES_POR_PRODUCTO(NOMBRE_PRODUCTO VARCHAR(45))
+BEGIN
+	DECLARE ID INTEGER;
+	SET ID = ID_PRODUCTO(NOMBRE_PRODUCTO);
+	SELECT PR.*, I.UNIDADES_DISPONIBLES FROM PRODUCTO PR, INVENTARIO I
+	WHERE PR.PRODUCTO = ID
+	AND PR.PRODUCTO = I.PRODUCTO;
+END//
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------- INVENTARIO GENERAL
+DELIMITER //
+CREATE PROCEDURE INVENTARIO_GENERAL()
+BEGIN
+	SELECT PR.*, I.UNIDADES_DISPONIBLES FROM PRODUCTO PR, INVENTARIO I
+	WHERE PR.PRODUCTO = I.PRODUCTO;
+END//
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------- PRODUCTOS SIN EXISTENCIA
+DELIMITER //
+CREATE PROCEDURE PRODUCTOS_SIN_EXISTENCIA()
+BEGIN
+	SELECT PR.*, I.UNIDADES_DISPONIBLES FROM PRODUCTO PR, INVENTARIO I
+	WHERE PR.PRODUCTO = I.PRODUCTO
+	AND I.UNIDADES_DISPONIBLES = 0;
+END//

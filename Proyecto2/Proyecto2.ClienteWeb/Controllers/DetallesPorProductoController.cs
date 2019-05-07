@@ -9,29 +9,29 @@ using System.Web.Mvc;
 
 namespace Proyecto2.ClienteWeb.Controllers
 {
-    public class ProductosPorCategoriaController : Controller
+    public class DetallesPorProductoController : Controller
     {
-        // GET: ProductosPorCategoria
-        public ActionResult vProductosPorCategoria()
+        // GET: DetallesPorProducto
+        public ActionResult vDetallesPorProducto()
         {
             return View();
         }
 
-        public ActionResult mostrandoProductos(string tipo_categoria)
+        public ActionResult mostrandoProductos(string nombre)
         {
-            IEnumerable<Producto> listado = Lista(tipo_categoria);
-            Session["PRODUCTOS_POR_CATEGORIA"] = listado;
-            return RedirectToAction("vProductosPorCategoria", "ProductosPorCategoria");   
+            IEnumerable<Producto> listado = Lista(nombre);
+            Session["DETALLES_POR_PRODUCTO"] = listado;
+            return RedirectToAction("vDetallesPorProducto", "DetallesPorProducto");
         }
 
-        public IEnumerable<Producto> Lista(string tipo_categoria)
+        public IEnumerable<Producto> Lista(string nombre)
         {
-            var url = "http://localhost:61291/api/ProductosPorCategoria?";
-            string action = string.Format("tipo_categoria={0}", tipo_categoria);
+            var url = "http://localhost:61291/api/DetallesPorProducto?";
+            string action = string.Format("nombre={0}", nombre);
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, url + action);
             HttpResponseMessage response = HttpInstance.GetHttpClientInstance().SendAsync(request).Result;
             List<Producto> lista = new List<Producto>();
-            if(response.IsSuccessStatusCode)
+            if (response.IsSuccessStatusCode)
             {
                 var responsecontent = response.Content.ReadAsStringAsync().Result;
                 var listado = JsonConvert.DeserializeObject<List<Producto>>(responsecontent.ToString());
@@ -39,5 +39,8 @@ namespace Proyecto2.ClienteWeb.Controllers
             }
             return lista;
         }
+
+
+
     }
 }
