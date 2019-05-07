@@ -22,7 +22,7 @@ namespace Proyecto2.WebApi.Controllers
                 MySqlDataAdapter msda = new MySqlDataAdapter("SELECT * FROM Rol_Usuario", conection);
                 DataTable dt = new DataTable();
                 msda.Fill(dt);
-
+                
                 foreach(DataRow row in dt.Rows)
                 {
                     lista.Add(new Rol_Usuario(Convert.ToInt32(row["Rol_Usuario"]), row["Nombre"].ToString()));

@@ -1,0 +1,295 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Administrador</title>
+    <link type="text/css" href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #btn1-div {
+            position: absolute;
+            top: 30%;
+            right: 40%;
+            border: 15px solid #ddc;
+            padding: 20px 40px;
+        }
+
+        #btn2-div {
+            position: absolute;
+            top: 50%;
+            right: 40%;
+            border: 15px solid #ddc;
+            padding: 20px 40px;
+        }
+
+        #btn3-div {
+            position: absolute;
+            top: 70%;
+            right: 40%;
+            border: 15px solid #ddc;
+            padding: 20px 40px;
+        }
+
+        #btn4-div {
+            position: absolute;
+            top: 90%;
+            right: 10%;
+            border: 15px solid #ddc;
+            padding: 20px 40px;
+        }
+
+        #btn5-div {
+            position: absolute;
+            top: 115%;
+            right: 20%;
+            border: 15px solid #ddc;
+            padding: 20px 40px;
+        }
+
+        #btn6-div {
+            position: absolute;
+            top: 135%;
+            right: 20%;
+            border: 15px solid #ddc;
+            padding: 20px 40px;
+        }
+        #btn7-div {
+            position: absolute;
+            top: 155%;
+            right: 10%;
+            border: 15px solid #ddc;
+            padding: 20px 40px;
+        }
+        #btn8-div {
+            position: absolute;
+            top: 185%;
+            right: 40%;
+            border: 15px solid #ddc;
+            padding: 20px 40px;
+        }
+        #btn9-div {
+            position: absolute;
+            top: 205%;
+            right: 40%;
+            border: 15px solid #ddc;
+            padding: 20px 40px;
+        }
+
+        #btn10-div {
+            position: absolute;
+            top: 225%;
+            right: 40%;
+            border: 15px solid #ddc;
+            padding: 20px 40px;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div>
+        @if (Session["USUARIO"] != null)
+        {
+            Proyecto2.ClienteWeb.Models.Usuario userLogueado = Session["USUARIO"] as Proyecto2.ClienteWeb.Models.Usuario;
+            <div class="jumbotron text-center" style="margin-bottom:0">
+                <h1>Panel Administrador</h1>
+                <p>@userLogueado.Nombre - USUARIO: @userLogueado.Id_Usuario.ToString()</p>
+            </div>
+
+            <div id="btn1-div">
+                <table>
+                    <tr>
+                        <td><h4>Usuario</h4></td>
+
+                    </tr>
+                    <tr>
+                        <td><a href="@Url.Action("vNuevoUsuario","NuevoUsuario")" class="btn btn-primary">Nuevo Usuario</a></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="btn2-div">
+                <table>
+                    <tr>
+                        <td></td>
+                        <td><h4>Actividades</h4></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" class="btn btn-success">Todas</button></td>
+                        <td><button type="submit" class="btn btn-success">Por Mes</button></td>
+                        <td><button type="submit" class="btn btn-success">Por Año</button></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="btn3-div">
+                <table>
+                    <tr>
+                        <td></td>
+                        <td><h4>Caja</h4></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" class="btn btn-warning">Abrir</button></td>
+                        <td><button type="submit" class="btn btn-warning">Mov. Diario</button></td>
+                        <td><button type="submit" class="btn btn-warning">Cerrar</button></td>
+                        <td><button type="submit" class="btn btn-warning">Pago Servicio</button></td>
+
+                    </tr>
+                </table>
+            </div>
+
+            <div id="btn4-div">
+                <table>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h4>Ventas</h4></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" class="btn btn-danger">Realizar Venta</button></td>
+                        <td><button type="submit" class="btn btn-danger">Ver Facturas</button></td>
+                        <td><button type="submit" class="btn btn-danger">Mayor venta del día</button></td>
+                        <td><button type="submit" class="btn btn-danger">Producto en cantidad mas vendido del día</button></td>
+                        <td><button type="submit" class="btn btn-danger">Clientes con deudas de mayor a menor</button></td>
+                        <td><button type="submit" class="btn btn-danger">Total de ventas por mes de un año determinado</button></td>
+                        <td><button type="submit" class="btn btn-danger">Clientes que más han comprado</button></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="btn5-div">
+                <table>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h4>Clientes</h4></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" class="btn btn-danger">Agregar</button></td>
+                        <td><button type="submit" class="btn btn-danger">Modificar</button></td>
+                        <td><button type="submit" class="btn btn-danger">Eliminar</button></td>
+                        <td><button type="submit" class="btn btn-danger">Historial Por cliente</button></td>
+                        <td><button type="submit" class="btn btn-danger">Deudas por cliente</button></td>
+                        <td><button type="submit" class="btn btn-danger">Abonos por cliente</button></td>
+                        <td><button type="submit" class="btn btn-danger">Registrar Abono</button></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="btn6-div">
+                <table>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td><h2>Categorías</h2></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" class="btn btn-primary">Crear</button></td>
+                        <td><button type="submit" class="btn btn-primary">Eliminar</button></td>
+                        <td><button type="submit" class="btn btn-primary">Agregar Producto a Categoría</button></td>
+                        <td><button type="submit" class="btn btn-primary">Quitar Producto de Categoría</button></td>
+                        <td><button type="submit" class="btn btn-primary">Ver Productos por Categoría</button></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="btn7-div">
+                <table>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h2>Productos</h2></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" class="btn btn-success">Crear</button></td>
+                        <td><button type="submit" class="btn btn-success">Modificar</button></td>
+                        <td><button type="submit" class="btn btn-success">Eliminar</button></td>
+                        <td><button type="submit" class="btn btn-success">Agregar Descuento a Producto</button></td>
+                        <td><button type="submit" class="btn btn-success">Inventario General</button></td>
+                        <td><button type="submit" class="btn btn-success">Detalles por Producto</button></td>
+                        <td><button type="submit" class="btn btn-success">Productos más Vendidos</button></td>
+                        <td><button type="submit" class="btn btn-success">Productos sin existencia</button></td>
+                        <td><button type="submit" class="btn btn-success">Productos más comprados</button></td>
+                        <td><button type="submit" class="btn btn-success">Productos con descuento</button></td>
+                        <td><button type="submit" class="btn btn-success">Mejores Proveedores</button></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="btn8-div">
+                <table>
+                    <tr>
+                        <td></td>
+                        <td><h2>Proveedores</h2></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" class="btn btn-warning">Crear</button></td>
+                        <td><button type="submit" class="btn btn-warning">Modificar</button></td>
+                        <td><button type="submit" class="btn btn-warning">Eliminar</button></td>
+                        <td><button type="submit" class="btn btn-warning">Proveedores</button></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="btn9-div">
+                <table>
+                    <tr>
+                        <td><h2>Compras</h2></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" class="btn btn-danger">Compra a Proveedor</button></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="btn10-div">
+                <table>
+                    <tr>
+                        <td><h2>Sesión</h2></td>
+                    </tr>
+                    <tr>
+                        <td><a href="@Url.Action("vFinalizado","CerrarSesion")" class="btn btn-secondary">Cerrar Sesión</a></td>
+                    </tr>
+                </table>
+            </div>
+
+
+        }
+        else
+        {
+            <h2>ERROR: INICIAR SESION</h2>
+        }
+    </div>
+</body>
+</html>
+
