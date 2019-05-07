@@ -10,10 +10,10 @@ namespace Proyecto2.WebApi.Models
         public int Factura { get; set; }
         public int Producto { get; set; }
         public int Cliente { get; set; }
-        public int PrecioUnidad { get; set; }
+        public double PrecioUnidad { get; set; }
         public int Cantidad { get; set; }
 
-        public Detalle(int factura,int producto,int cliente,int precio_unidad,int cantidad)
+        public Detalle(int factura,int producto,int cliente,double precio_unidad,int cantidad)
         {
             this.Factura = factura;
             this.Producto = producto;

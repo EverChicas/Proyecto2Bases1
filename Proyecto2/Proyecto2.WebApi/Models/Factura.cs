@@ -11,10 +11,10 @@ namespace Proyecto2.WebApi.Models
         public DateTime FechaHora { get; set; }
         public int Cliente { get; set; }
         public int NIT { get; set; }
-        public int Total { get; set; }
-        public int IVA_Venta { get; set; }
+        public double Total { get; set; }
+        public double IVA_Venta { get; set; }
 
-        public Factura(int factura,DateTime FechaHora,int cliente,int nit,int total,int iva)
+        public Factura(int factura,DateTime FechaHora,int cliente,int nit,double total,double iva)
         {
             this.factura = factura;
             this.FechaHora = FechaHora;

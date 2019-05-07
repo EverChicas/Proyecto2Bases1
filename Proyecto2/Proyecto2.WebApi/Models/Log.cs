@@ -10,11 +10,11 @@ namespace Proyecto2.WebApi.Models
         public int log { get; set; }
         public DateTime FechaHora { get; set; }
         public string Descripcion { get; set; }
-        public int MontoMovimiento { get; set; }
+        public double MontoMovimiento { get; set; }
         public int Movimiento { get; set; }
         public int Usuario { get; set; }
 
-        public Log(int log,DateTime fechaHora,string descripcion,int montoMovimeinto,int movimiento, int usuario)
+        public Log(int log,DateTime fechaHora,string descripcion,double montoMovimeinto,int movimiento, int usuario)
         {
             this.log = log;
             this.FechaHora = fechaHora;
