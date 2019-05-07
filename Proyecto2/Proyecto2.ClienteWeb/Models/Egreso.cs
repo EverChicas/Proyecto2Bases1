@@ -9,7 +9,7 @@ namespace Proyecto2.ClienteWeb.Models
     {
         public int egreso { get; set; }
         public DateTime FechaHora { get; set; }
-        public int Monto { get; set; }
+        public double Monto { get; set; }
         public string NoRecibo { get; set; }
         public int TipoPago { get; set; }
         public int Usuario { get; set; }

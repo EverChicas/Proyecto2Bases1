@@ -144,7 +144,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AbrirCajaController.cs" />
     <Compile Include="Controllers\AdministradorController.cs" />
+    <Compile Include="Controllers\CerrarCajaController.cs" />
     <Compile Include="Controllers\CerrarSesionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NuevoUsuarioController.cs" />
@@ -256,6 +258,8 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\NuevoUsuario\vNuevoUsuario.cshtml" />
+    <Content Include="Views\AbrirCaja\vAbrirCaja.cshtml" />
+    <Content Include="Views\CerrarCaja\vCerrarCaja.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

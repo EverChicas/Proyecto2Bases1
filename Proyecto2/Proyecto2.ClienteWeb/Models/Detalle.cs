@@ -10,7 +10,7 @@ namespace Proyecto2.ClienteWeb.Models
         public int Factura { get; set; }
         public int Producto { get; set; }
         public int Cliente { get; set; }
-        public int PrecioUnidad { get; set; }
+        public double PrecioUnidad { get; set; }
         public int Cantidad { get; set; }
     }
 }

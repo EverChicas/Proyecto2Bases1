@@ -9,6 +9,6 @@ namespace Proyecto2.ClienteWeb.Models
     {
         public int producto { get; set; }
         public string Nombre { get; set; }
-        public int Precio { get; set; }
+        public double Precio { get; set; }
     }
 }
