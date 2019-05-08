@@ -146,13 +146,20 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AbrirCajaController.cs" />
     <Compile Include="Controllers\AdministradorController.cs" />
+    <Compile Include="Controllers\AsignarProductoEnCategoriaController.cs" />
     <Compile Include="Controllers\CerrarCajaController.cs" />
     <Compile Include="Controllers\CerrarSesionController.cs" />
+    <Compile Include="Controllers\DetallesPorProductoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InventarioGeneralController.cs" />
     <Compile Include="Controllers\NuevoProductoController.cs" />
+    <Compile Include="Controllers\NuevoProveedorController.cs" />
     <Compile Include="Controllers\NuevoTipoCategoriaController.cs" />
     <Compile Include="Controllers\NuevoUsuarioController.cs" />
+    <Compile Include="Controllers\ProductosPorCategoriaController.cs" />
+    <Compile Include="Controllers\ProductosSinExistenciaController.cs" />
     <Compile Include="Controllers\PruebaController.cs" />
+    <Compile Include="Controllers\RegresarController.cs" />
     <Compile Include="Controllers\VendedorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -356,11 +363,18 @@
     <Content Include="Views\CerrarCaja\vCerrarCaja.cshtml" />
     <Content Include="Views\NuevoProducto\vNuevoProducto.cshtml" />
     <Content Include="Views\NuevoTipoCategoria\vNuevoTipoCategoria.cshtml" />
+    <Content Include="Views\AsignarProductoEnCategoria\vAsignarProductoEnCategoria.cshtml" />
+    <Content Include="Views\DetallesPorProducto\vDetallesPorProducto.cshtml" />
+    <Content Include="Views\InventarioGeneral\vInventarioGeneral.cshtml" />
+    <Content Include="Views\ProductosPorCategoria\vProductosPorCategoria.cshtml" />
+    <Content Include="Views\ProductosSinExistencia\vProductosSinExistencia.cshtml" />
+    <Content Include="Views\NuevoProveedor\vNuevoProveedor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\CerrarSesion\" />
     <Folder Include="Views\Inicio\" />
+    <Folder Include="Views\Regresar\" />
     <Folder Include="Views\Vendedor\" />
   </ItemGroup>
   <ItemGroup>
