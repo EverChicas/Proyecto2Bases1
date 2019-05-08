@@ -20,7 +20,7 @@ namespace Proyecto2.WebApi.Controllers
             conection.Open();
             MySqlCommand command = new MySqlCommand("LOGIN_USUARIO", conection);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@ID", user);
+            command.Parameters.AddWithValue("@USER", user);
             command.Parameters.AddWithValue("@PASS", password);
             MySqlDataReader reader = command.ExecuteReader();
             while(reader.Read())
