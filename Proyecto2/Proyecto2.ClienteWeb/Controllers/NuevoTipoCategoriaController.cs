@@ -17,7 +17,7 @@ namespace Proyecto2.ClienteWeb.Controllers
             return View();
         }
 
-
+        //--
         [HttpPost]
         public ActionResult creandoNuevoTipoCategoria(string nombre)
         {

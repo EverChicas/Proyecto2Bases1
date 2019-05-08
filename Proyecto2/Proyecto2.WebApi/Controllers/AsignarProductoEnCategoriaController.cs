@@ -10,19 +10,18 @@ using Proyecto2.WebApi.Models;
 
 namespace Proyecto2.WebApi.Controllers
 {
-    public class NuevoProductoController : ApiController
+    public class AsignarProductoEnCategoriaController : ApiController
     {
         [HttpPost]
-        public Boolean creandoNuevoProducto(string nombre, double precio, int unidades_disponibles)
+        public Boolean asignandoProductoEnCategoria(string nombre, string tipo_categoria)
         {
             Boolean resultado = false;
             MySqlConnection conection = new MySqlConnection(Conexion.CadenaConexion());
             conection.Open();
-            MySqlCommand command = new MySqlCommand("CREAR_PRODUCTO", conection);
+            MySqlCommand command = new MySqlCommand("AGREGAR_PRODUCTO_EN_CATEGORIA", conection);
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.AddWithValue("@NOMBRE_PRODUCTO", nombre);
-            command.Parameters.AddWithValue("@PRECIO_PRODUCTO", precio);
-            command.Parameters.AddWithValue("@U_DISPONIBLES", unidades_disponibles);
+            command.Parameters.AddWithValue("@NOMBRE_CATEGORIA", tipo_categoria);
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -32,5 +31,7 @@ namespace Proyecto2.WebApi.Controllers
             conection.Close();
             return resultado;
         }
+        
+
     }
 }

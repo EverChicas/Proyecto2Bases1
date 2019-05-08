@@ -172,13 +172,20 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AsignarProductoEnCategoriaController.cs" />
     <Compile Include="Controllers\CajaController.cs" />
+    <Compile Include="Controllers\DetallesPorProductoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InventarioGeneralController.cs" />
     <Compile Include="Controllers\LoginUsuarioController.cs" />
     <Compile Include="Controllers\NuevoProductoController.cs" />
     <Compile Include="Controllers\NuevoTipoCategoriaController.cs" />
     <Compile Include="Controllers\NuevoUsuarioController.cs" />
+    <Compile Include="Controllers\ProductosController.cs" />
+    <Compile Include="Controllers\ProductosPorCategoriaController.cs" />
+    <Compile Include="Controllers\ProductosSinExistenciaController.cs" />
     <Compile Include="Controllers\Rol_UsuarioController.cs" />
+    <Compile Include="Controllers\Tipo_CategoriasController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

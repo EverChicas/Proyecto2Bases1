@@ -10,27 +10,23 @@ using Proyecto2.WebApi.Models;
 
 namespace Proyecto2.WebApi.Controllers
 {
-    public class NuevoProductoController : ApiController
+    public class ProductosSinExistenciaController : ApiController
     {
         [HttpPost]
-        public Boolean creandoNuevoProducto(string nombre, double precio, int unidades_disponibles)
+        public IEnumerable<Producto> listaGeneral()
         {
-            Boolean resultado = false;
             MySqlConnection conection = new MySqlConnection(Conexion.CadenaConexion());
             conection.Open();
-            MySqlCommand command = new MySqlCommand("CREAR_PRODUCTO", conection);
+            MySqlCommand command = new MySqlCommand("PRODUCTOS_SIN_EXISTENCIA", conection);
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@NOMBRE_PRODUCTO", nombre);
-            command.Parameters.AddWithValue("@PRECIO_PRODUCTO", precio);
-            command.Parameters.AddWithValue("@U_DISPONIBLES", unidades_disponibles);
+            List<Producto> lista = new List<Producto>();
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
-                if (int.Parse(reader.GetValue(0).ToString()) == 1)
-                    resultado = true;
+                lista.Add(new Producto(int.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), double.Parse(reader.GetValue(2).ToString())));
             }
             conection.Close();
-            return resultado;
+            return lista;
         }
     }
 }

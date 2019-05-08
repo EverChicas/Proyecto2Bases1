@@ -18,11 +18,11 @@ namespace Proyecto2.ClienteWeb.Controllers
         }
 
         [HttpPost]
-        public ActionResult creandoNuevoProducto(string nombre, double precio)
+        public ActionResult creandoNuevoProducto(string nombre, double precio, int unidades_disponibles)
         {
             Usuario userLogueado = Session["USUARIO"] as Usuario;
             var url = "http://localhost:61291/api/NuevoProducto?";
-            string action = string.Format("nombre={0}&precio={1}", nombre, precio);
+            string action = string.Format("nombre={0}&precio={1}&unidades_disponibles={2}", nombre, precio, unidades_disponibles);
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, url + action);
             HttpResponseMessage response = HttpInstance.GetHttpClientInstance().SendAsync(request).Result;
             if (response.IsSuccessStatusCode)
