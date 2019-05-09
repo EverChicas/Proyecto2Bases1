@@ -90,7 +90,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `ABRIR_CAJA`(IN CAJA INT,IN USUARIO 
 BEGIN
 	SELECT @MONTO := caja.Monto 
     FROM caja 
-    WHERE caja.Caja = 1;
+    WHERE caja.Caja = Caja;
     
     UPDATE caja 
     SET Estado = 1 
@@ -116,3 +116,63 @@ BEGIN
 	INSERT INTO cerrar_caja(Fecha_Hora,Monto_Numero,Monto_Letras,Observacion,Usuario_Usuario,Caja_Caja)
     VALUES(CURRENT_TIMESTAMP(),MONTO_NUMERO,MONTO_LETRA,OBSERVACIONES,USUARIO,CAJA);
 END//
+
+-- AGREGAR TIPO DE PAGO
+USE `proyecto2bases1`;
+DROP procedure IF EXISTS `AGREGAR_TIPO_PAGO`;
+
+DELIMITER $$
+USE `proyecto2bases1`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AGREGAR_TIPO_PAGO`(IN TIPO_PAGO VARCHAR(45))
+BEGIN
+	INSERT INTO tipo_pago(Nombre) VALUES(TIPO_PAGO);
+END$$
+
+DELIMITER ;
+
+-- LISTA DE PAGOS
+USE `proyecto2bases1`;
+DROP procedure IF EXISTS `LISTA_PAGOS`;
+
+DELIMITER $$
+USE `proyecto2bases1`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `LISTA_PAGOS`()
+BEGIN
+	SELECT * FROM tipo_pago;
+END$$
+
+DELIMITER ;
+
+-- INGRESAR EGRESO
+USE `proyecto2bases1`;
+DROP procedure IF EXISTS `INGRESAR_EGRESO`;
+
+DELIMITER $$
+USE `proyecto2bases1`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `INGRESAR_EGRESO`(IN MONTO DOUBLE,IN NO_RECIBO VARCHAR(45),IN TIPO_PAGO INT(11),IN USUARIO INT(11),IN CAJA INT(11))
+BEGIN
+	SELECT @FECHA := CURRENT_TIMESTAMP(); 
+
+	SELECT @MONTO_CAJA := caja.Monto 
+    FROM caja 
+    WHERE caja.Caja = CAJA;
+
+    UPDATE caja 
+    SET Monto = @MONTO_CAJA - MONTO 
+    WHERE caja.Caja = CAJA;
+    
+    INSERT INTO movimiento(Fecha_Hora,Descripcion,Monto,Saldo_Caja,Usuario,Caja)
+    VALUES(@FECHA,'PAGO DE SERVICIO',MONTO,@MONTO_CAJA,USUARIO,CAJA);
+
+	SELECT @ID_MOVIMIENTO := movimiento.Movimiento
+    FROM movimiento
+    WHERE movimiento.Fecha_Hora = @FECHA;
+
+	INSERT INTO log(Fecha_Hora,Descripcion,Monto_Movimiento,Movimiento,Usuario)
+    VALUES(@FECHA,'PAGO DE SERVICIO',MONTO,@ID_MOVIMIENTO,USUARIO);
+
+	INSERT INTO egreso(Fecha_Hora,Monto,No_recibo,Tipo_Pago,Usuario,Caja)
+    VALUES(@FECHA,MONTO,NO_RECIBO,TIPO_PAGO,USUARIO,CAJA);
+END$$
+
+DELIMITER ;
