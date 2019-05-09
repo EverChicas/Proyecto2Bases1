@@ -55,11 +55,9 @@ namespace Proyecto2.ClienteWeb.Controllers
                 {
                     case 1:
                         Session["USUARIO"] = usuario;
-                        Session["CAJA"] = null;
                         return RedirectToAction("vInicioAdministrador", "Administrador", usuario.Id_Usuario);
                     case 2:
                         Session["USUARIO"] = usuario;
-                        Session["CAJA"] = null;
                         return RedirectToAction("vInicioVendedor", "Vendedor", usuario.Id_Usuario);
                     default:
                         return RedirectToAction("vInicio", "Home");
