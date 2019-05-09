@@ -51,8 +51,8 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -150,14 +150,10 @@
     <Compile Include="Controllers\AsignarProductoEnCategoriaController.cs" />
     <Compile Include="Controllers\CerrarCajaController.cs" />
     <Compile Include="Controllers\CerrarSesionController.cs" />
-    <Compile Include="Controllers\CompraProveedorController.cs" />
     <Compile Include="Controllers\DetallesPorProductoController.cs" />
-    <Compile Include="Controllers\EliminarProveedorController.cs" />
-    <Compile Include="Controllers\EliminarTipoCategoriaController.cs" />
+    <Compile Include="Controllers\EgresoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventarioGeneralController.cs" />
-    <Compile Include="Controllers\ModificarProveedorController.cs" />
-    <Compile Include="Controllers\MostrarProveedoresController.cs" />
     <Compile Include="Controllers\NuevoProductoController.cs" />
     <Compile Include="Controllers\NuevoProveedorController.cs" />
     <Compile Include="Controllers\NuevoTipoCategoriaController.cs" />
@@ -375,13 +371,8 @@
     <Content Include="Views\ProductosPorCategoria\vProductosPorCategoria.cshtml" />
     <Content Include="Views\ProductosSinExistencia\vProductosSinExistencia.cshtml" />
     <Content Include="Views\NuevoProveedor\vNuevoProveedor.cshtml" />
-    <Content Include="Views\CompraProveedor\vCompraProveedor.cshtml" />
-    <Content Include="Views\ModificarProveedor\vModificarProveedor.cshtml" />
-    <Content Include="Views\EliminarProveedor\vEliminarProveedor.cshtml" />
-    <Content Include="Views\MostrarProveedores\vMostrarProveedores.cshtml" />
-    <Content Include="Views\ModificarProveedor\vModificandoProveedor.cshtml" />
     <Content Include="Views\AgregarTipoPago\vAgregarTipoPago.cshtml" />
-    <Content Include="Views\EliminarTipoCategoria\vEliminarTipoCategoria.cshtml" />
+    <Content Include="Views\Egreso\vEgreso.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
