@@ -103,27 +103,26 @@
             @if (Session["USUARIO"] != null)
             {
                 Proyecto2.ClienteWeb.Models.Usuario userLogueado = Session["USUARIO"] as Proyecto2.ClienteWeb.Models.Usuario;
+                Caja cajaAbierta = Session["CAJA"] as Caja;
                 <div class="jumbotron text-center" style="margin-bottom:0">
                     <h1>Abrir Caja</h1>
                     <p>@userLogueado.Nombre - USUARIO: @userLogueado.Id_Usuario.ToString()</p>
                 </div>
 
-                using (Html.BeginForm("SeleccionarCajaAbrir", "AbrirCaja", FormMethod.Post))
+                using (Html.BeginForm("CerrarCajaAbierta", "CerrarCaja", FormMethod.Post))
                 {
-                    <div id="SeleccionarCaja">
+                    <div id="CerrarCaja">
                         <div class="form-group">
-                            <label for="Caja">Caja:</label>
-                            <select id="caja" name="caja">
-                                @using (Html.BeginForm())
-                                {
-                                    foreach (var item in Model)
-                                    {
-                                        <option>@item.caja.ToString()</option>
-                                    }
-                                }
-                            </select>
+                            <div>
+                                <label for="Monto_letras">Monto:</label>
+                                <input type="text" name="MontoLetras" value="" placeholder="cien" />
+                            </div>
+                            <div>
+                                <label for="Observacion">Observacion:</label>
+                                <input type="text" name="Observacion" value="" placeholder="El estado de la caja es bueno"/>
+                            </div>
                         </div>
-                        <input id="btn" name="btn" type="submit" value="Seleccionar" class="btn btn-primary" />
+                        <input id="btn" name="btn" type="submit" value="Cerrar" class="btn btn-primary" />
                     </div>
                 }
 

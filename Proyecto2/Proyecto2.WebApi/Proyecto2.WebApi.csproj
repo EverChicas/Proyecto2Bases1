@@ -172,7 +172,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AbrirCajaController.cs" />
     <Compile Include="Controllers\CajaController.cs" />
+    <Compile Include="Controllers\CerrarCajaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginUsuarioController.cs" />
     <Compile Include="Controllers\NuevoProductoController.cs" />
