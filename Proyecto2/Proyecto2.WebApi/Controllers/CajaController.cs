@@ -40,7 +40,7 @@ namespace Proyecto2.WebApi.Controllers
             command.CommandType = System.Data.CommandType.StoredProcedure;
             command.Parameters.AddWithValue("@CAJA", caja);
             command.Parameters.AddWithValue("@USUARIO", usuario);
-            int res = command.ExecuteNonQuery();
+            double res = command.ExecuteNonQuery();
             conection.Close();
         }
 
