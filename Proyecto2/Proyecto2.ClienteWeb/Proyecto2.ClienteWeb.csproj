@@ -150,10 +150,15 @@
     <Compile Include="Controllers\AsignarProductoEnCategoriaController.cs" />
     <Compile Include="Controllers\CerrarCajaController.cs" />
     <Compile Include="Controllers\CerrarSesionController.cs" />
+    <Compile Include="Controllers\CompraProveedorController.cs" />
     <Compile Include="Controllers\DetallesPorProductoController.cs" />
     <Compile Include="Controllers\EgresoController.cs" />
+    <Compile Include="Controllers\EliminarProveedorController.cs" />
+    <Compile Include="Controllers\EliminarTipoCategoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventarioGeneralController.cs" />
+    <Compile Include="Controllers\ModificarProveedorController.cs" />
+    <Compile Include="Controllers\MostrarProveedoresController.cs" />
     <Compile Include="Controllers\NuevoProductoController.cs" />
     <Compile Include="Controllers\NuevoProveedorController.cs" />
     <Compile Include="Controllers\NuevoTipoCategoriaController.cs" />
@@ -373,6 +378,12 @@
     <Content Include="Views\NuevoProveedor\vNuevoProveedor.cshtml" />
     <Content Include="Views\AgregarTipoPago\vAgregarTipoPago.cshtml" />
     <Content Include="Views\Egreso\vEgreso.cshtml" />
+    <Content Include="Views\CompraProveedor\vCompraProveedor.cshtml" />
+    <Content Include="Views\EliminarProveedor\vEliminarProveedor.cshtml" />
+    <Content Include="Views\EliminarTipoCategoria\vEliminarTipoCategoria.cshtml" />
+    <Content Include="Views\ModificarProveedor\vModificandoProveedor.cshtml" />
+    <Content Include="Views\ModificarProveedor\vModificarProveedor.cshtml" />
+    <Content Include="Views\MostrarProveedores\vMostrarProveedores.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
