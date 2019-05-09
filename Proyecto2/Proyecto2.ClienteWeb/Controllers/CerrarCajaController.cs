@@ -21,12 +21,12 @@ namespace Proyecto2.ClienteWeb.Controllers
         [HttpPost]
         public ActionResult CerrarCajaAbierta(string MontoLetras, string Observacion)
         {
-            Usuario userLogueado = Session["USUARIO"] as Usuario;
+            Usuario usuario = Session["USUARIO"] as Usuario;
             Caja cajaAbierta = Session["CAJA"] as Caja;
 
             Cerrar_Caja enviar = new Cerrar_Caja();
             enviar.Caja = cajaAbierta.caja;
-            enviar.Usuario = userLogueado.Id_Usuario;
+            enviar.Usuario = usuario.Id_Usuario;
             enviar.MontoNumero = cajaAbierta.Monto;
             enviar.MontoLetras = MontoLetras;
             enviar.Observacion = Observacion;
@@ -54,7 +54,7 @@ namespace Proyecto2.ClienteWeb.Controllers
             }
             else
             {
-                return RedirectToAction("vAbrirCaja", "AbrirCaja", userLogueado.Id_Usuario);
+                return RedirectToAction("vAbrirCaja", "AbrirCaja", usuario.Id_Usuario);
             }
         }
     }
