@@ -13,7 +13,7 @@ namespace Proyecto2.WebApi.Controllers
     public class NuevoProductoController : ApiController
     {
         [HttpPost]
-        public Boolean creandoNuevoProducto(string nombre, double precio)
+        public Boolean creandoNuevoProducto(string nombre, double precio, int unidades_disponibles)
         {
             Boolean resultado = false;
             MySqlConnection conection = new MySqlConnection(Conexion.CadenaConexion());
@@ -22,6 +22,7 @@ namespace Proyecto2.WebApi.Controllers
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.AddWithValue("@NOMBRE_PRODUCTO", nombre);
             command.Parameters.AddWithValue("@PRECIO_PRODUCTO", precio);
+            command.Parameters.AddWithValue("@U_DISPONIBLES", unidades_disponibles);
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
