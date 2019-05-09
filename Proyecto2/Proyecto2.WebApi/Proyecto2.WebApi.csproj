@@ -173,6 +173,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AbrirCajaController.cs" />
+    <Compile Include="Controllers\AgregarTipoPagoController.cs" />
     <Compile Include="Controllers\AsignarProductoEnCategoriaController.cs" />
     <Compile Include="Controllers\CajaController.cs" />
     <Compile Include="Controllers\CerrarCajaController.cs" />
