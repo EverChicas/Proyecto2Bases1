@@ -32,17 +32,18 @@ namespace Proyecto2.ClienteWeb.Controllers
         [HttpPost]
         public ActionResult SeleccionarCajaAbrir(int caja)
         {
-            Usuario userLogueado = Session["USUARIO"] as Usuario;
+            Usuario usuario = Session["USUARIO"] as Usuario;
             
             
-            var url = "http://localhost:61291/api/Caja?";
-            string action = string.Format("usuario={0}&caja={1}",userLogueado.Id_Usuario,caja);
+            var url = "http://localhost:61291/api/AbrirCaja?";
+            string action = string.Format("usuario={0}&caja={1}",usuario.Id_Usuario,caja);
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, url + action);
             HttpResponseMessage response = HttpInstance.GetHttpClientInstance().SendAsync(request).Result;
             if (response.IsSuccessStatusCode)
             {
+                var url2 = "http://localhost:61291/api/Caja?";
                 string action2 = string.Format("caja={0}", caja);
-                HttpRequestMessage request2 = new HttpRequestMessage(HttpMethod.Post, url + action2);
+                HttpRequestMessage request2 = new HttpRequestMessage(HttpMethod.Post, url2 + action2);
                 HttpResponseMessage response2 = HttpInstance.GetHttpClientInstance().SendAsync(request2).Result;
                 if (response2.IsSuccessStatusCode)
                 {
@@ -50,11 +51,23 @@ namespace Proyecto2.ClienteWeb.Controllers
                     Caja tmp = JsonConvert.DeserializeObject<Caja>(resultString);
                     Session["CAJA"] = tmp;
                 }
-                return RedirectToAction("vInicioAdministrador", "Administrador", userLogueado.Id_Usuario);
+                switch (usuario.Rol_Usuario)
+                {
+                    case 1:
+                        Session["USUARIO"] = usuario;
+                        Session["CAJA"] = null;
+                        return RedirectToAction("vInicioAdministrador", "Administrador", usuario.Id_Usuario);
+                    case 2:
+                        Session["USUARIO"] = usuario;
+                        Session["CAJA"] = null;
+                        return RedirectToAction("vInicioVendedor", "Vendedor", usuario.Id_Usuario);
+                    default:
+                        return RedirectToAction("vInicio", "Home");
+                }
             }
             else
             {
-                return RedirectToAction("vAbrirCaja", "AbrirCaja", userLogueado.Id_Usuario);
+                return RedirectToAction("vAbrirCaja", "AbrirCaja", usuario.Id_Usuario);
             }
 
             
