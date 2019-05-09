@@ -142,18 +142,18 @@
                         <td></td>
                     </tr>
                     <tr>
+                        <td><a href="@Url.Action("vMovimientosCaja","MovimientosCaja")" class="btn btn-warning">Movimientos</a></td>
                         @if (cajaAbierta == null)
                         {
                             <td><a href="@Url.Action("vAbrirCaja","AbrirCaja")" class="btn btn-warning">Abrir</a></td>
                         }
                         else
                         {
-                            <td><button type="submit" class="btn btn-warning">Mov. Diario</button></td>
                             <td><a href="@Url.Action("vCerrarCaja","CerrarCaja")" class="btn btn-warning">Cerrar</a></td>
-                            <td><button type="submit" class="btn btn-warning">Pago Servicio</button></td>
+                            <td><a href="@Url.Action("vEgreso","Egreso")" class="btn btn-warning">Pago Servicio</a></td>
                             <td><button type="submit" class="btn btn-warning">Ventas</button></td>
                         }
-                        <td><button type="submit" class="btn btn-warning">Agregar Pago de Servicio</button></td>
+                        <td><a href="@Url.Action("vAgregarTipoPago","AgregarTipoPago")" class="btn btn-warning">Agregar pago de servicio</a></td>
                     </tr>
                 </table>
             </div>
@@ -262,10 +262,10 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td><button type="submit" class="btn btn-warning">Crear</button></td>
-                        <td><button type="submit" class="btn btn-warning">Modificar</button></td>
-                        <td><button type="submit" class="btn btn-warning">Eliminar</button></td>
-                        <td><button type="submit" class="btn btn-warning">Proveedores</button></td>
+                        <td><a href="@Url.Action("vNuevoProveedor", "NuevoProveedor")" class="btn btn-warning">Crear</a></td>
+                        <td><a href="@Url.Action("vModificarProveedor", "ModificarProveedor")" class="btn btn-warning">Modificar</a></td>
+                        <td><a href="@Url.Action("vEliminarProveedor", "EliminarProveedor")" class="btn btn-warning">Eliminar</a></td>
+                        <td><a href="@Url.Action("vMostrarProveedores", "MostrarProveedores")" class="btn btn-warning">Proveedores</a></td>
                     </tr>
                 </table>
             </div>
@@ -276,7 +276,7 @@
                         <td><h2>Compras</h2></td>
                     </tr>
                     <tr>
-                        <td><button type="submit" class="btn btn-danger">Compra a Proveedor</button></td>
+                        <td><a href="@Url.Action("vCompraProveedor", "CompraProveedor")" class="btn btn-danger">Compra a Proveedor</a></td>
                     </tr>
                 </table>
             </div>

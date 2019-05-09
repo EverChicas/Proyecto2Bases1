@@ -9,16 +9,20 @@ using System.Web.Http;
 
 namespace Proyecto2.WebApi.Controllers
 {
-    public class AgregarTipoPagoController : ApiController
+    public class PagoServicioController : ApiController
     {
         [HttpPost]
-        public void AgregarPago(string nombre)
+        public void PagarServicio(Egreso egreso)
         {
             MySqlConnection conection = new MySqlConnection(Conexion.CadenaConexion());
             conection.Open();
-            MySqlCommand command = new MySqlCommand("AGREGAR_TIPO_PAGO", conection);
+            MySqlCommand command = new MySqlCommand("INGRESAR_EGRESO", conection);
             command.CommandType = System.Data.CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@TIPO_PAGO", nombre);
+            command.Parameters.AddWithValue("@MONTO",egreso.Monto);
+            command.Parameters.AddWithValue("@NO_RECIBO",egreso.NoRecibo);
+            command.Parameters.AddWithValue("@TIPO_PAGO",egreso.TipoPago);
+            command.Parameters.AddWithValue("@USUARIO",egreso.Usuario);
+            command.Parameters.AddWithValue("@CAJA",egreso.Caja);
             command.ExecuteNonQuery();
             conection.Close();
         }
