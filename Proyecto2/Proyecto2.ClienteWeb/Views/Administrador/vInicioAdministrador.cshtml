@@ -142,18 +142,18 @@
                         <td></td>
                     </tr>
                     <tr>
+                        <td><a href="@Url.Action("vMovimientosCaja","MovimientosCaja")" class="btn btn-warning">Movimientos</a></td>
                         @if (cajaAbierta == null)
                         {
                             <td><a href="@Url.Action("vAbrirCaja","AbrirCaja")" class="btn btn-warning">Abrir</a></td>
                         }
                         else
                         {
-                            <td><button type="submit" class="btn btn-warning">Mov. Diario</button></td>
                             <td><a href="@Url.Action("vCerrarCaja","CerrarCaja")" class="btn btn-warning">Cerrar</a></td>
                             <td><a href="@Url.Action("vEgreso","Egreso")" class="btn btn-warning">Pago Servicio</a></td>
                             <td><button type="submit" class="btn btn-warning">Ventas</button></td>
                         }
-                            <td><a href="@Url.Action("vAgregarTipoPago","AgregarTipoPago")" class="btn btn-warning">Agregar pago de servicio</a></td>
+                        <td><a href="@Url.Action("vAgregarTipoPago","AgregarTipoPago")" class="btn btn-warning">Agregar pago de servicio</a></td>
                     </tr>
                 </table>
             </div>

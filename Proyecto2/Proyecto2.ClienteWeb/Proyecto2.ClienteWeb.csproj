@@ -154,6 +154,7 @@
     <Compile Include="Controllers\EgresoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventarioGeneralController.cs" />
+    <Compile Include="Controllers\MovimientosCajaController.cs" />
     <Compile Include="Controllers\NuevoProductoController.cs" />
     <Compile Include="Controllers\NuevoProveedorController.cs" />
     <Compile Include="Controllers\NuevoTipoCategoriaController.cs" />
@@ -373,6 +374,7 @@
     <Content Include="Views\NuevoProveedor\vNuevoProveedor.cshtml" />
     <Content Include="Views\AgregarTipoPago\vAgregarTipoPago.cshtml" />
     <Content Include="Views\Egreso\vEgreso.cshtml" />
+    <Content Include="Views\MovimientosCaja\vMovimientosCaja.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
