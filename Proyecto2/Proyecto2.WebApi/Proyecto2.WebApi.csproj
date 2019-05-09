@@ -175,6 +175,7 @@
     <Compile Include="Controllers\AsignarProductoEnCategoriaController.cs" />
     <Compile Include="Controllers\CajaController.cs" />
     <Compile Include="Controllers\DetallesPorProductoController.cs" />
+    <Compile Include="Controllers\EliminarTipoCategoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventarioGeneralController.cs" />
     <Compile Include="Controllers\LoginUsuarioController.cs" />
