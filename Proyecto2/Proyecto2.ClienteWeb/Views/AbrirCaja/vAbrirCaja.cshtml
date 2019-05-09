@@ -103,10 +103,11 @@
         @if (Session["USUARIO"] != null)
         {
             Proyecto2.ClienteWeb.Models.Usuario userLogueado = Session["USUARIO"] as Proyecto2.ClienteWeb.Models.Usuario;
-            <div class="jumbotron text-center" style="margin-bottom:0">
-                <h1>Abrir Caja</h1>
-                <p>@userLogueado.Nombre - USUARIO: @userLogueado.Id_Usuario.ToString()</p>
-            </div>
+        <div class="jumbotron text-center" style="margin-bottom:0">
+            <h1>Abrir Caja</h1>
+            <p>@userLogueado.Nombre - USUARIO: @userLogueado.Id_Usuario.ToString()</p>
+            <a href="@Url.Action("vRegresar","Regresar")" class="btn btn-info">Regresar</a>
+        </div>
 
             using (Html.BeginForm("SeleccionarCajaAbrir", "AbrirCaja", FormMethod.Post))
             {
