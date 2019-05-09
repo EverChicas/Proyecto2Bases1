@@ -32,6 +32,19 @@ namespace Proyecto2.WebApi.Controllers
         }
 
         [HttpPost]
+        public void AbrirCaja(int usuario, int caja)
+        {
+            MySqlConnection conection = new MySqlConnection(Conexion.CadenaConexion());
+            conection.Open();
+            MySqlCommand command = new MySqlCommand("ABRIR_CAJA", conection);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@CAJA", caja);
+            command.Parameters.AddWithValue("@USUARIO", usuario);
+            double res = command.ExecuteNonQuery();
+            conection.Close();
+        }
+
+        [HttpPost]
         public Caja BuscarCaja(int caja)
         {
             Caja retornar = null;
@@ -51,6 +64,5 @@ namespace Proyecto2.WebApi.Controllers
             conection.Close();
             return retornar;
         }
-        
     }
 }
