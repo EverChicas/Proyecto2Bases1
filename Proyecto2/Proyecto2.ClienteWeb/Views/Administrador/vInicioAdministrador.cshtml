@@ -193,13 +193,14 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td><button type="submit" class="btn btn-danger">Agregar</button></td>
-                        <td><button type="submit" class="btn btn-danger">Modificar</button></td>
-                        <td><button type="submit" class="btn btn-danger">Eliminar</button></td>
+                        <td><a href="@Url.Action("vNuevoCliente","NuevoCliente")" class="btn btn-danger">Agregar</a></td>
+                        <td><a href="@Url.Action("vModificarCliente","ModificarCliente")" class="btn btn-danger">Modificar</a></td>
+                        <td><a href="@Url.Action("vEliminarCliente","EliminarCliente")" class="btn btn-danger">Eliminar</a></td>
                         <td><button type="submit" class="btn btn-danger">Historial Por cliente</button></td>
                         <td><button type="submit" class="btn btn-danger">Deudas por cliente</button></td>
                         <td><button type="submit" class="btn btn-danger">Abonos por cliente</button></td>
                         <td><button type="submit" class="btn btn-danger">Registrar Abono</button></td>
+                        <td><a href="@Url.Action("vListadoGeneralClientes","ListadoGeneralClientes")" class="btn btn-danger">Lista Clientes</a></td>
                     </tr>
                 </table>
             </div>

@@ -179,13 +179,17 @@
     <Compile Include="Controllers\CerrarCajaController.cs" />
     <Compile Include="Controllers\CompraProveedorController.cs" />
     <Compile Include="Controllers\DetallesPorProductoController.cs" />
+    <Compile Include="Controllers\EliminarClienteController.cs" />
     <Compile Include="Controllers\EliminarTipoCategoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventarioGeneralController.cs" />
+    <Compile Include="Controllers\ListadoGeneralClientesController.cs" />
     <Compile Include="Controllers\ListaPagosController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LoginUsuarioController.cs" />
+    <Compile Include="Controllers\ModificarClienteController.cs" />
     <Compile Include="Controllers\MovimientosController.cs" />
+    <Compile Include="Controllers\NuevoClienteController.cs" />
     <Compile Include="Controllers\NuevoProductoController.cs" />
     <Compile Include="Controllers\NuevoTipoCategoriaController.cs" />
     <Compile Include="Controllers\NuevoUsuarioController.cs" />

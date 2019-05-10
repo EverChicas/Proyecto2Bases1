@@ -1,3 +1,5 @@
+update-package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r
+
 DELIMITER //
 CREATE PROCEDURE LOGIN_USUARIO(IN USER INTEGER, IN PASS VARCHAR(50))
 BEGIN
@@ -198,3 +200,52 @@ BEGIN
 	SET ID = ID_TIPO_CATEGORIA(NOMBRE_CATEGORIA);
 	DELETE FROM tipo_categoria WHERE TIPO_CATEGORIA = ID;
 END//
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------- AGREGAR NUEVO CLIENTE
+DELIMITER //
+CREATE FUNCTION ID_CLIENTE(DPI_P INTEGER)
+RETURNS INT(11)
+BEGIN
+	DECLARE ID INTEGER DEFAULT -1;
+	SELECT C.DPI INTO ID FROM CLIENTE C
+	WHERE C.DPI = DPI_P;
+	RETURN ID;
+END//
+
+DELIMITER //
+CREATE PROCEDURE CREAR_CLIENTE(DPI_P INTEGER, NOMBRE_CLIENTE_P VARCHAR(100), NIT_P INTEGER, TELEFONO_P VARCHAR(15), CORREO_P VARCHAR(100))
+BEGIN
+	DECLARE EXISTE INTEGER;
+	DECLARE RESULTADO INTEGER DEFAULT 0;
+	SET EXISTE = ID_CLIENTE(DPI_P);
+	IF EXISTE = -1 THEN
+		INSERT INTO CLIENTE(DPI, NOMBRE, NIT, TELEFONO, CORREO) VALUES (DPI_P, NOMBRE_CLIENTE_P, NIT_P, TELEFONO_P, CORREO_P);
+		SET RESULTADO = 1;
+	END IF;
+	SELECT RESULTADO;
+END//
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------- MODIFICANDO CLIENTE
+DELIMITER //
+CREATE PROCEDURE LISTADO_CLIENTES()
+BEGIN
+	SELECT *FROM CLIENTES;
+END//
+
+DELIMITER //
+CREATE PROCEDURE MODIFICAR_CLIENTE(DPI_P INTEGER, NOMBRE_CLIENTE_P VARCHAR(100), NIT_P INTEGER, TELEFONO_P VARCHAR(15), CORREO_P VARCHAR(100))
+BEGIN
+	DECLARE ID INTEGER;
+	UPDATE CLIENTE SET NOMBRE = NOMBRE_CLIENTE_P, NIT = NIT_P, TELEFONO = TELEFONO_P, CORREO = CORREO_P
+	WHERE DPI = DPI_P;
+END//
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------- ELIMINANDO CLIENTE
+DELIMITER //
+CREATE PROCEDURE ELIMINAR_CLIENTE(DPI_P INTEGER)
+BEGIN
+	DELETE FROM	CLIENTE WHERE DPI = DPI_P;
+END//
+
+
+	

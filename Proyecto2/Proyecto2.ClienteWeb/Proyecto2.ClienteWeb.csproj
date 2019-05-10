@@ -153,13 +153,17 @@
     <Compile Include="Controllers\CompraProveedorController.cs" />
     <Compile Include="Controllers\DetallesPorProductoController.cs" />
     <Compile Include="Controllers\EgresoController.cs" />
+    <Compile Include="Controllers\EliminarClienteController.cs" />
     <Compile Include="Controllers\EliminarProveedorController.cs" />
     <Compile Include="Controllers\EliminarTipoCategoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventarioGeneralController.cs" />
+    <Compile Include="Controllers\ListadoGeneralClientesController.cs" />
+    <Compile Include="Controllers\ModificarClienteController.cs" />
     <Compile Include="Controllers\ModificarProveedorController.cs" />
     <Compile Include="Controllers\MostrarProveedoresController.cs" />
     <Compile Include="Controllers\MovimientosCajaController.cs" />
+    <Compile Include="Controllers\NuevoClienteController.cs" />
     <Compile Include="Controllers\NuevoProductoController.cs" />
     <Compile Include="Controllers\NuevoProveedorController.cs" />
     <Compile Include="Controllers\NuevoTipoCategoriaController.cs" />
@@ -386,6 +390,10 @@
     <Content Include="Views\Egreso\vEgreso.cshtml" />
     <Content Include="Views\EliminarTipoCategoria\vEliminarTipoCategoria.cshtml" />
     <Content Include="Views\MovimientosCaja\vMovimientosCaja.cshtml" />
+    <Content Include="Views\NuevoCliente\vNuevoCliente.cshtml" />
+    <Content Include="Views\ModificarCliente\vModificarCliente.cshtml" />
+    <Content Include="Views\EliminarCliente\vEliminarCliente.cshtml" />
+    <Content Include="Views\ListadoGeneralClientes\vListadoGeneralClientes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
