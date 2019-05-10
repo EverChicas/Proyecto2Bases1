@@ -104,5 +104,4 @@ BEGIN
 	INSERT INTO egreso(Fecha_Hora,Monto,No_recibo,Tipo_Pago,Usuario,Caja)
     VALUES(@FECHA,MONTO,NO_RECIBO,TIPO_PAGO,USUARIO,CAJA);
 END$$
-
 DELIMITER ;

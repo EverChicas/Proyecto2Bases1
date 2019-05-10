@@ -62,6 +62,7 @@
             border: 15px solid #ddc;
             padding: 20px 40px;
         }
+
         #btn7-div {
             position: absolute;
             top: 155%;
@@ -69,6 +70,7 @@
             border: 15px solid #ddc;
             padding: 20px 40px;
         }
+
         #btn8-div {
             position: absolute;
             top: 185%;
@@ -76,6 +78,7 @@
             border: 15px solid #ddc;
             padding: 20px 40px;
         }
+
         #btn9-div {
             position: absolute;
             top: 205%;
@@ -104,7 +107,7 @@
             <div class="jumbotron text-center" style="margin-bottom:0">
                 <h1>Panel Administrador</h1>
                 <p>@userLogueado.Nombre - USUARIO: @userLogueado.Id_Usuario.ToString()</p>
-                
+
             </div>
 
             <div id="btn1-div">
@@ -123,13 +126,13 @@
                 <table>
                     <tr>
                         <td></td>
-                        <td><h4>Actividades</h4></td>
+                        <td><h4>Log de Movimientos</h4></td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td><button type="submit" class="btn btn-success">Todas</button></td>
-                        <td><button type="submit" class="btn btn-success">Por Mes</button></td>
-                        <td><button type="submit" class="btn btn-success">Por Año</button></td>
+                        <td><a href="@Url.Action("vLogGeneral","LogGeneral")" class="btn btn-success">Reporte General</a></td>
+                        <td><a href="@Url.Action("vLogMensual","LogMensual")" class="btn btn-success">Movimientos Mensuales</a></td>
+                        <td><a href="@Url.Action("vLogPorFecha","LogPorFecha")" class="btn btn-success">Movimientos Por Fecha</a></td>
                     </tr>
                 </table>
             </div>
@@ -301,4 +304,3 @@
     </div>
 </body>
 </html>
-
