@@ -28,5 +28,24 @@ namespace Proyecto2.ClienteWeb.Controllers
 
             return View(new List<Movimiento>());
         }
+
+        [HttpPost]
+        public ActionResult MovimientoFecha(string fecha)
+        {
+            HttpClient cliente = new HttpClient();
+            cliente.BaseAddress = new Uri("http://localhost:61291/");
+            var request = cliente.GetAsync("api/Movimientos").Result;
+
+            if (request.IsSuccessStatusCode)
+            {
+                var resultString = request.Content.ReadAsStringAsync().Result;
+                var listado = JsonConvert.DeserializeObject<List<Movimiento>>(resultString);
+
+                return View(listado);
+            }
+
+            return View(new List<Movimiento>());
+        }
+
     }
 }
