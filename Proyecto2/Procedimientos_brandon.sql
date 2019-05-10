@@ -1,3 +1,5 @@
+update-package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r
+
 DELIMITER //
 CREATE PROCEDURE LOGIN_USUARIO(IN USER INTEGER, IN PASS VARCHAR(50))
 BEGIN
@@ -198,3 +200,99 @@ BEGIN
 	SET ID = ID_TIPO_CATEGORIA(NOMBRE_CATEGORIA);
 	DELETE FROM tipo_categoria WHERE TIPO_CATEGORIA = ID;
 END//
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------- AGREGAR NUEVO CLIENTE
+DELIMITER //
+CREATE FUNCTION ID_CLIENTE(DPI_P INTEGER)
+RETURNS INT(11)
+BEGIN
+	DECLARE ID INTEGER DEFAULT -1;
+	SELECT C.DPI INTO ID FROM CLIENTE C
+	WHERE C.DPI = DPI_P;
+	RETURN ID;
+END//
+
+DELIMITER //
+CREATE PROCEDURE CREAR_CLIENTE(DPI_P INTEGER, NOMBRE_CLIENTE_P VARCHAR(100), NIT_P INTEGER, TELEFONO_P VARCHAR(15), CORREO_P VARCHAR(100))
+BEGIN
+	DECLARE EXISTE INTEGER;
+	DECLARE RESULTADO INTEGER DEFAULT 0;
+	SET EXISTE = ID_CLIENTE(DPI_P);
+	IF EXISTE = -1 THEN
+		INSERT INTO CLIENTE(DPI, NOMBRE, NIT, TELEFONO, CORREO) VALUES (DPI_P, NOMBRE_CLIENTE_P, NIT_P, TELEFONO_P, CORREO_P);
+		SET RESULTADO = 1;
+	END IF;
+	SELECT RESULTADO;
+END//
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------- MODIFICANDO CLIENTE
+DELIMITER //
+CREATE PROCEDURE LISTADO_CLIENTES()
+BEGIN
+	SELECT *FROM CLIENTES;
+END//
+
+DELIMITER //
+CREATE PROCEDURE MODIFICAR_CLIENTE(DPI_P INTEGER, NOMBRE_CLIENTE_P VARCHAR(100), NIT_P INTEGER, TELEFONO_P VARCHAR(15), CORREO_P VARCHAR(100))
+BEGIN
+	DECLARE ID INTEGER;
+	UPDATE CLIENTE SET NOMBRE = NOMBRE_CLIENTE_P, NIT = NIT_P, TELEFONO = TELEFONO_P, CORREO = CORREO_P
+	WHERE DPI = DPI_P;
+END//
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------- ELIMINANDO CLIENTE
+DELIMITER //
+CREATE PROCEDURE ELIMINAR_CLIENTE(DPI_P INTEGER)
+BEGIN
+	DELETE FROM	CLIENTE WHERE DPI = DPI_P;
+END//
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------- MODIFICAR PRODUCTO
+DELIMITER //
+CREATE PROCEDURE MODIFICAR_PRODUCTO(NOMBRE_PRODUCTO VARCHAR(45), PRECIO_PRODUCTO DOUBLE, UNIDADES_DISPONIBLES_P INTEGER)
+BEGIN
+	DECLARE ID INTEGER;
+	SET ID = ID_PRODUCTO(NOMBRE_PRODUCTO);
+	UPDATE PRODUCTO SET PRECIO = PRECIO_PRODUCTO
+	WHERE PRODUCTO = ID;
+	UPDATE INVENTARIO SET UNIDADES_DISPONIBLES = UNIDADES_DISPONIBLES_P
+	WHERE PRODUCTO = ID;
+END//
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------- AGREGAR DESCUENTO A PRODUCTO
+DELIMITER //
+CREATE PROCEDURE AGREGAR_DESCUENTO_A_PRODUCTO(NOMBRE_PRODUCTO VARCHAR(45), FECHA_I VARCHAR(19), FECHA_F VARCHAR(19), PORCENTAJE INTEGER)
+BEGIN
+	DECLARE ID INTEGER;
+	DECLARE EXISTE_DESCUENTO INTEGER DEFAULT -1;
+	DECLARE RESULTADO INTEGER DEFAULT 0;
+    DECLARE CONVERT_FFCHA_I DATETIME;
+    DECLARE CONVERT_FECHA_F DATETIME;
+    SET CONVERT_FFCHA_I = CONVERT(FECHA_I, DATETIME);
+    SET CONVERT_FECHA_F = CONVERT(FECHA_F, DATETIME);
+	SET ID = ID_PRODUCTO(NOMBRE_PRODUCTO);
+	
+	IF CONVERT_FECHA_F < NOW() THEN
+		INSERT INTO DESCUENTO(FECHA_INICIO, FECHA_FIN, PORCENTAJE_DESCUENTO, PRODUCTO) VALUES (CONVERT_FFCHA_I, CONVERT_FECHA_F, PORCENTAJE, ID);
+		SET RESULTADO = 1;
+	ELSE
+		SELECT D.PRODUCTO INTO EXISTE_DESCUENTO FROM DESCUENTO D
+		WHERE D.PRODUCTO = ID
+		AND D.FECHA_FIN > NOW();
+		IF EXISTE_DESCUENTO = -1 THEN
+			INSERT INTO DESCUENTO(FECHA_INICIO, FECHA_FIN, PORCENTAJE_DESCUENTO, PRODUCTO) VALUES (CONVERT_FFCHA_I, CONVERT_FECHA_F, PORCENTAJE, ID);
+			SET RESULTADO = 1;
+		END IF;
+	END IF;
+	SELECT RESULTADO;
+END//
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------- PRODUCTOS CON DESCUENTO
+DELIMITER //
+CREATE PROCEDURE LISTADO_PRODUCTOS_CON_DESCUENTO()
+BEGIN
+	SELECT D.DESCUENTO, D.FECHA_INICIO, D.FECHA_FIN, D.PORCENTAJE_DESCUENTO, P.NOMBRE
+	FROM PRODUCTO P, DESCUENTO D
+	WHERE P.PRODUCTO = D.PRODUCTO;
+END
+

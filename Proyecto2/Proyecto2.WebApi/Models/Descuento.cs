@@ -12,7 +12,7 @@ namespace Proyecto2.WebApi.Models
         public DateTime FechaFin { get; set; }
         public int PorcentajeDescuento { get; set; }
         public int Producto { get; set; }
-
+        public string nombreProducto { get; set; }
         public Descuento(int descuento,DateTime fechaInicio,DateTime fechaFin,int porcentaje,int producto)
         {
             this.descuento = descuento;
@@ -21,5 +21,16 @@ namespace Proyecto2.WebApi.Models
             this.PorcentajeDescuento = porcentaje;
             this.Producto = producto;
         }
+
+        public Descuento(int descuento, DateTime fecha_ini, DateTime fecha_fin, int porcentaje, string nombreProducto)
+        {
+            this.descuento = descuento;
+            this.FechaInicio = fecha_ini;
+            this.FechaFin = fecha_fin;
+            this.PorcentajeDescuento = porcentaje;
+            this.nombreProducto = nombreProducto;
+        }
+
+
     }
 }

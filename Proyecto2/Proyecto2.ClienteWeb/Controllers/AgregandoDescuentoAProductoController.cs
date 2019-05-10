@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using System.Globalization;
+using Newtonsoft.Json;
 using Proyecto2.ClienteWeb.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -9,20 +10,23 @@ using System.Web.Mvc;
 
 namespace Proyecto2.ClienteWeb.Controllers
 {
-    public class NuevoProductoController : Controller
+    public class AgregandoDescuentoAProductoController : Controller
     {
-        // GET: NuevoProducto
-        public ActionResult vNuevoProducto()
+        // GET: AgregandoDescuentoAProducto
+        public ActionResult vAgregandoDescuento()
         {
             return View();
         }
 
-        [HttpPost]
-        public ActionResult modificandoProducto(string nombre, double precio, int unidades_disponibles)
+        public ActionResult agregandoDescuentoAProducto(string nombre, string fecha_ini, string fecha_fin, int porcentaje)
         {
             Usuario userLogueado = Session["USUARIO"] as Usuario;
-            var url = "http://localhost:61291/api/NuevoProducto?";
-            string action = string.Format("nombre={0}&precio={1}&unidades_disponibles={2}", nombre, precio, unidades_disponibles);
+            DateTime local = DateTime.Now;
+
+            fecha_ini += " " + local.Hour.ToString()+":"+local.Minute.ToString()+":"+local.Second.ToString();
+            fecha_fin += " " + local.Hour.ToString() + ":" + local.Minute.ToString() + ":" + local.Second.ToString();
+            var url = "http://localhost:61291/api/AgregarDescuentoAProducto?";
+            string action = string.Format("nombre={0}&fecha_ini={1}&fecha_fin={2}&porcentaje={3}", nombre, fecha_ini, fecha_fin, porcentaje);
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, url + action);
             HttpResponseMessage response = HttpInstance.GetHttpClientInstance().SendAsync(request).Result;
             if (response.IsSuccessStatusCode)
@@ -37,7 +41,12 @@ namespace Proyecto2.ClienteWeb.Controllers
                         return RedirectToAction("vInicioVendedor", "Vendedor");
                 }
             }
-            return RedirectToAction("vNuevoProducto", "NuevoProducto");
+            return RedirectToAction("vAgregandoDescuento", "AgregandoDescuentoAProducto");
         }
+
+
+
+
+
     }
 }

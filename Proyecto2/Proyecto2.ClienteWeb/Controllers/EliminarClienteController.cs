@@ -9,35 +9,35 @@ using System.Web.Mvc;
 
 namespace Proyecto2.ClienteWeb.Controllers
 {
-    public class NuevoProductoController : Controller
+    public class EliminarClienteController : Controller
     {
-        // GET: NuevoProducto
-        public ActionResult vNuevoProducto()
+        // GET: EliminarCliente
+        public ActionResult vEliminarCliente()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult modificandoProducto(string nombre, double precio, int unidades_disponibles)
+        public ActionResult eliminandoCliente(int dpi)
         {
             Usuario userLogueado = Session["USUARIO"] as Usuario;
-            var url = "http://localhost:61291/api/NuevoProducto?";
-            string action = string.Format("nombre={0}&precio={1}&unidades_disponibles={2}", nombre, precio, unidades_disponibles);
+            var url = "http://localhost:61291/api/EliminarCliente?";
+            string action = string.Format("dpi={0}", dpi);
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, url + action);
             HttpResponseMessage response = HttpInstance.GetHttpClientInstance().SendAsync(request).Result;
-            if (response.IsSuccessStatusCode)
+            if(response.IsSuccessStatusCode)
             {
                 var responsecontent = response.Content.ReadAsStringAsync().Result;
-                var agregado = JsonConvert.DeserializeObject<Boolean>(responsecontent.ToString());
-                if (agregado)
+                var eliminado = JsonConvert.DeserializeObject<Boolean>(responsecontent.ToString());
+                if(eliminado)
                 {
                     if (userLogueado.Rol_Usuario == 1)
                         return RedirectToAction("vInicioAdministrador", "Administrador");
-                    else if (userLogueado.Rol_Usuario == 2)
+                    else
                         return RedirectToAction("vInicioVendedor", "Vendedor");
                 }
             }
-            return RedirectToAction("vNuevoProducto", "NuevoProducto");
+            return RedirectToAction("vEliminarCliente", "EliminarCliente");
         }
     }
 }
