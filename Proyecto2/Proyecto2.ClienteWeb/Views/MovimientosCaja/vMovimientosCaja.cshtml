@@ -71,22 +71,21 @@
                         </tr>
                         @foreach (Movimiento item in Model)
                         {
-                        <tr>
-                            <td>@item.movimiento</td>
-                            <td>@item.FechaHora</td>
-                            <td>@item.Descripcion</td>
-                            <td>@item.Monto</td>
-                            <td>@item.SaldoCaja</td>
-                            <td>@item.Usuario</td>
-                            <td>@item.Caja</td>
-                        </tr>
+                            <tr>
+                                <td>@item.movimiento</td>
+                                <td>@item.FechaHora</td>
+                                <td>@item.Descripcion</td>
+                                <td>@item.Monto</td>
+                                <td>@item.SaldoCaja</td>
+                                <td>@item.Usuario</td>
+                                <td>@item.Caja</td>
+                            </tr>
                         }
                     </table>
                 </div>
             </ul>
         </div>
-        <div>
-            using (Html.BeginForm("MovimientoFecha", "MovimientoCaja", FormMethod.Post))
+            using (Html.BeginForm("MovimientoFecha", "MovimientosCaja", FormMethod.Post))
             {
             <div id="SeleccionarFecha">
                 <div class="form-group">
@@ -96,7 +95,6 @@
                 <input id="btn" name="btn" type="submit" value="Seleccionar" class="btn btn-primary" />
             </div>
             }
-        </div>
     }
     else
     {
