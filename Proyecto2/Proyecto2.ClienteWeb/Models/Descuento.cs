@@ -12,5 +12,6 @@ namespace Proyecto2.ClienteWeb.Models
         public DateTime FechaFin { get; set; }
         public int PorcentajeDescuento { get; set; }
         public int Producto { get; set; }
+        public string nombreProducto { get; set; }
     }
 }
