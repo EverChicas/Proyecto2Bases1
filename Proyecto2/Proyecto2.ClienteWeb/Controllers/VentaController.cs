@@ -127,6 +127,7 @@ namespace Proyecto2.ClienteWeb.Controllers
                     nueva.NIT = tmp.NIT;
                     nueva.NombreCliente = tmp.Nombre;
                     nueva.MontoPagado = CalcularTotal(tmpDetalleCompra);
+                    nueva.IVA = CalcularIVA(nueva.MontoPagado);
                     nueva.Usuario = usuario.Id_Usuario;
                     nueva.Caja = cajaAbierta.caja;
                     nueva.Factura = factura.factura;

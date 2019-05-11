@@ -239,3 +239,42 @@ BEGIN
 END$$
 
 DELIMITER ;
+
+-- MAYOR VENTA DEL DIA
+USE `proyecto2bases1`;
+DROP procedure IF EXISTS `MAYOR_VENTA_DIA`;
+
+DELIMITER $$
+USE `proyecto2bases1`$$
+CREATE PROCEDURE `MAYOR_VENTA_DIA` ()
+BEGIN
+		SELECT * 
+		FROM venta AS v
+		WHERE v.Factura IN ( 
+			SELECT f.Factura
+			FROM Factura AS f
+			WHERE DATE(f.Fecha_Hora) = DATE(CURRENT_TIMESTAMP())
+			AND f.Total IN (
+				SELECT MAX(f.Total)
+				FROM Factura AS f
+				WHERE DATE(f.Fecha_Hora) = DATE(CURRENT_TIMESTAMP())
+    )
+);
+END$$
+
+DELIMITER ;
+
+-- HISTORIAL DE CLIENTE
+USE `proyecto2bases1`;
+DROP procedure IF EXISTS `HISTORIAL_CLIENTE`;
+
+DELIMITER $$
+USE `proyecto2bases1`$$
+CREATE PROCEDURE `HISTORIAL_CLIENTE` (IN CLIENTE INT(11))
+BEGIN
+	SELECT *
+    FROM factura AS F
+    WHERE F.Cliente = CLIENTE;
+END$$
+
+DELIMITER ;
