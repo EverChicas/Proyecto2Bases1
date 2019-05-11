@@ -13,7 +13,7 @@ namespace Proyecto2.WebApi.Models
         public string Telefono { get; set; }
         public string Correo { get; set; }
 
-        public Cliente(int DPI,string Nombre,int NTI,string Telefono,string Correo)
+        public Cliente(int DPI,string Nombre,int NIT,string Telefono,string Correo)
         {
             this.DPI = DPI;
             this.Nombre = Nombre;

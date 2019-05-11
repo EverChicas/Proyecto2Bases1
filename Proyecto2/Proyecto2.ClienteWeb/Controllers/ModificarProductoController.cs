@@ -9,10 +9,10 @@ using System.Web.Mvc;
 
 namespace Proyecto2.ClienteWeb.Controllers
 {
-    public class NuevoProductoController : Controller
+    public class ModificarProductoController : Controller
     {
-        // GET: NuevoProducto
-        public ActionResult vNuevoProducto()
+        // GET: ModificarProducto
+        public ActionResult vModificarProducto()
         {
             return View();
         }
@@ -21,7 +21,7 @@ namespace Proyecto2.ClienteWeb.Controllers
         public ActionResult modificandoProducto(string nombre, double precio, int unidades_disponibles)
         {
             Usuario userLogueado = Session["USUARIO"] as Usuario;
-            var url = "http://localhost:61291/api/NuevoProducto?";
+            var url = "http://localhost:61291/api/ModificarProducto?";
             string action = string.Format("nombre={0}&precio={1}&unidades_disponibles={2}", nombre, precio, unidades_disponibles);
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, url + action);
             HttpResponseMessage response = HttpInstance.GetHttpClientInstance().SendAsync(request).Result;
@@ -37,7 +37,7 @@ namespace Proyecto2.ClienteWeb.Controllers
                         return RedirectToAction("vInicioVendedor", "Vendedor");
                 }
             }
-            return RedirectToAction("vNuevoProducto", "NuevoProducto");
+            return RedirectToAction("vModificarProducto", "ModificarProducto");
         }
     }
 }
