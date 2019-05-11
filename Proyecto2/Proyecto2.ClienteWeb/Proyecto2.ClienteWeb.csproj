@@ -396,6 +396,19 @@
     <Content Include="Views\Facturas\vMayorVentaDia.cshtml" />
     <Content Include="Views\Facturas\vFacturas.cshtml" />
     <Content Include="Views\Cliente\vHistorialCliente.cshtml" />
+    <Content Include="Views\AgregandoDescuentoAProducto\vAgregandoDescuento.cshtml" />
+    <Content Include="Views\EliminarCliente\vEliminarCliente.cshtml" />
+    <Content Include="Views\ListadoGeneralClientes\vListadoGeneralClientes.cshtml" />
+    <Content Include="Views\LogGeneral\vLogGeneral.cshtml" />
+    <Content Include="Views\LogGeneral\vMostrandoReporteLogG.cshtml" />
+    <Content Include="Views\LogMensual\vLogMensual.cshtml" />
+    <Content Include="Views\LogMensual\vMostrandoReporteLogM.cshtml" />
+    <Content Include="Views\LogPorFecha\vLogPorFecha.cshtml" />
+    <Content Include="Views\LogPorFecha\vMostrandoReporteLogF.cshtml" />
+    <Content Include="Views\ModificarCliente\vModificarCliente.cshtml" />
+    <Content Include="Views\ModificarProducto\vModificarProducto.cshtml" />
+    <Content Include="Views\NuevoCliente\vNuevoCliente.cshtml" />
+    <Content Include="Views\ProductosConDescuento\vProductosConDescuento.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
