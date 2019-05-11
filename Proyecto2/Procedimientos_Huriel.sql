@@ -95,3 +95,16 @@ BEGIN
     -- INSERT INTO MOVIMIENTO
     -- VALUES (FECHA_P, CONCAT("Compra de productos factura No.", NO_FACTURA_P), VALOR_COMPRA_P, 'SALDO CAJA',USUARIO_P,PRODUCTO_P);
 END//
+
+-- LISTA DE FACTURAS
+USE `proyecto2bases1`;
+DROP procedure IF EXISTS `LISTA_FACTURAS`;
+
+DELIMITER $$
+USE `proyecto2bases1`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `LISTA_FACTURAS`()
+BEGIN
+	SELECT * FROM factura;
+END$$
+
+DELIMITER ;

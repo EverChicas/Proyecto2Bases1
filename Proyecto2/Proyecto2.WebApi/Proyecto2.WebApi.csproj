@@ -185,8 +185,10 @@
     <Compile Include="Controllers\GuardarVentaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventarioGeneralController.cs" />
+    <Compile Include="Controllers\ListaFacturasController.cs" />
     <Compile Include="Controllers\ListaPagosController.cs" />
     <Compile Include="Controllers\LoginUsuarioController.cs" />
+    <Compile Include="Controllers\MayorVentaController.cs" />
     <Compile Include="Controllers\MovimientosController.cs" />
     <Compile Include="Controllers\NuevaFacturaController.cs" />
     <Compile Include="Controllers\NuevoClienteController.cs" />

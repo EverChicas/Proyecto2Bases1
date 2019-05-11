@@ -156,6 +156,7 @@
     <Compile Include="Controllers\EgresoController.cs" />
     <Compile Include="Controllers\EliminarProveedorController.cs" />
     <Compile Include="Controllers\EliminarTipoCategoriaController.cs" />
+    <Compile Include="Controllers\FacturasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventarioGeneralController.cs" />
     <Compile Include="Controllers\ModificarProveedorController.cs" />
@@ -392,6 +393,8 @@
     <Content Include="Views\Cliente\vNuevoCliente.cshtml" />
     <Content Include="Views\Venta\vRealizarVenta.cshtml" />
     <Content Include="Views\Venta\vVender.cshtml" />
+    <Content Include="Views\Facturas\vMayorVentaDia.cshtml" />
+    <Content Include="Views\Facturas\vFacturas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -170,12 +170,9 @@
                     </tr>
                     <tr>
                         <td><a href="@Url.Action("vRealizarVenta","Venta")" class="btn btn-danger">Realizar Venta</a></td>
-                        <td><button type="submit" class="btn btn-danger">Ver Facturas</button></td>
-                        <td><button type="submit" class="btn btn-danger">Mayor venta del día</button></td>
+                        <td><a href="@Url.Action("vFacturas","Facturas")" class="btn btn-danger">Ver Facturas</a></td>
+                        <td><a href="@Url.Action("vMayorVentaDia","Facturas")" class="btn btn-danger">Mayor venta del día</a></td>
                         <td><button type="submit" class="btn btn-danger">Producto en cantidad mas vendido del día</button></td>
-                        <td><button type="submit" class="btn btn-danger">Clientes con deudas de mayor a menor</button></td>
-                        <td><button type="submit" class="btn btn-danger">Total de ventas por mes de un año determinado</button></td>
-                        <td><button type="submit" class="btn btn-danger">Clientes que más han comprado</button></td>
                     </tr>
                 </table>
             </div>
@@ -193,12 +190,7 @@
                     </tr>
                     <tr>
                         <td><a href="@Url.Action("vNuevoCliente","Cliente")" class="btn btn-danger">Agregar</a></td>
-                        <td><button type="submit" class="btn btn-danger">Modificar</button></td>
-                        <td><button type="submit" class="btn btn-danger">Eliminar</button></td>
                         <td><button type="submit" class="btn btn-danger">Historial Por cliente</button></td>
-                        <td><button type="submit" class="btn btn-danger">Deudas por cliente</button></td>
-                        <td><button type="submit" class="btn btn-danger">Abonos por cliente</button></td>
-                        <td><button type="submit" class="btn btn-danger">Registrar Abono</button></td>
                     </tr>
                 </table>
             </div>
@@ -216,7 +208,6 @@
                         <td><a href="@Url.Action("vNuevoTipoCategoria", "NuevoTipoCategoria")" class="btn btn-primary">Crear</a></td>
                         <td><a href="@Url.Action("vEliminarTipoCategoria", "EliminarTipoCategoria")" class="btn btn-primary">Eliminar</a></td>
                         <td><a href="@Url.Action("vAsignarProductoEnCategoria", "AsignarProductoEnCategoria")" class="btn btn-primary">Asignar Producto a Categoría</a></td>
-                        <td><button type="submit" class="btn btn-primary">Quitar Producto de Categoría</button></td>
                         <td><a href="@Url.Action("vProductosPorCategoria", "ProductosPorCategoria")" class="btn btn-primary">Ver Productos por Categoría</a></td>
                     </tr>
                 </table>
@@ -239,16 +230,11 @@
                     </tr>
                     <tr>
                         <td><a href="@Url.Action("vNuevoProducto", "NuevoProducto")" class="btn btn-success">Crear</a></td>
-                        <td><button type="submit" class="btn btn-success">Modificar</button></td>
-                        <td><button type="submit" class="btn btn-success">Eliminar</button></td>
-                        <td><button type="submit" class="btn btn-success">Agregar Descuento a Producto</button></td>
                         <td><a href="@Url.Action("vInventarioGeneral", "InventarioGeneral")" class="btn btn-success">Inventario General</a></td>
                         <td><a href="@Url.Action("vDetallesPorProducto", "DetallesPorProducto")" class="btn btn-success">Detalles por Producto</a></td>
                         <td><button type="submit" class="btn btn-success">Productos más Vendidos</button></td>
                         <td><a href="@Url.Action("vProductosSinExistencia", "ProductosSinExistencia")" class="btn btn-success">Productos sin existencia</a></td>
                         <td><button type="submit" class="btn btn-success">Productos más comprados</button></td>
-                        <td><button type="submit" class="btn btn-success">Productos con descuento</button></td>
-                        <td><button type="submit" class="btn btn-success">Mejores Proveedores</button></td>
                     </tr>
                 </table>
             </div>
