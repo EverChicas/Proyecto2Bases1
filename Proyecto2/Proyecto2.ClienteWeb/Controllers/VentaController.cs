@@ -141,6 +141,8 @@ namespace Proyecto2.ClienteWeb.Controllers
                     var responseVenta = venta.PostAsync("api/GuardarVenta",detalleVenta, new JsonMediaTypeFormatter()).Result;
 
                     Session["DETALLE"] = null;
+                    cajaAbierta.Monto = nueva.MontoPagado;
+                    Session["CAJA"] = cajaAbierta;
                 }
 
             }
