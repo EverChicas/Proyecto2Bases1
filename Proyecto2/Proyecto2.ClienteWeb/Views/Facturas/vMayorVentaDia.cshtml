@@ -1,4 +1,4 @@
-﻿@model List<Movimiento>
+﻿@model List<Venta>
 @{
     Layout = null;
 }
@@ -59,47 +59,30 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
-                    @using (Html.BeginForm("MovimientoFecha", "MovimientosCaja", FormMethod.Post))
-                    {
-                        <div id="SeleccionarFecha">
-                            <div class="form-group">
-                                <label for="fecha">Fecha:</label>
-                                <input type="date" name="fecha" value="" />
-                            </div>
-                            <input id="btn" name="btn" type="submit" value="Seleccionar" class="btn btn-primary" />
-                        </div>
-                    }
-                </div>
-                <div class="col-md-4"></div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <table class="table table-hover">
                         <tr>
                             <th>ID</th>
-                            <th>FECHA</th>
-                            <th>DESCRIPCION</th>
-                            <th>MONTO</th>
-                            <th>SALDO DE CAJA</th>
+                            <th>NIT</th>
+                            <th>NOMBRE CLIENTE</th>
+                            <th>IVA</th>
+                            <th>MONTO PAGADO</th>
                             <th>USUARIO</th>
                             <th>CAJA</th>
+                            <th>NO FACTURA</th>
                         </tr>
-                        @foreach (Movimiento item in Model)
+                        @foreach (Venta item in Model)
                         {
                             <tr>
-                                <td>@item.movimiento</td>
-                                <td>@item.FechaHora</td>
-                                <td>@item.Descripcion</td>
-                                <td>@item.Monto</td>
-                                <td>@item.SaldoCaja</td>
+                                <td>@item.venta</td>
+                                <td>@item.NIT</td>
+                                <td>@item.NombreCliente</td>
+                                <td>@item.IVA</td>
+                                <td>@item.MontoPagado</td>
                                 <td>@item.Usuario</td>
                                 <td>@item.Caja</td>
+                                <td>@item.Factura</td>
                             </tr>
                         }
                     </table>

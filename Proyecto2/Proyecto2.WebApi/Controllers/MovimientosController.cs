@@ -43,8 +43,9 @@ namespace Proyecto2.WebApi.Controllers
 
             MySqlConnection conection = new MySqlConnection(Conexion.CadenaConexion());
             conection.Open();
-            MySqlCommand command = new MySqlCommand("LISTA_MOVIMIENTOS", conection);
+            MySqlCommand command = new MySqlCommand("MOVIMIENTO_FECHA", conection);
             command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@FECHA", fecha);
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {

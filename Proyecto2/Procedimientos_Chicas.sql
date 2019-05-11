@@ -104,4 +104,177 @@ BEGIN
 	INSERT INTO egreso(Fecha_Hora,Monto,No_recibo,Tipo_Pago,Usuario,Caja)
     VALUES(@FECHA,MONTO,NO_RECIBO,TIPO_PAGO,USUARIO,CAJA);
 END$$
+
+DELIMITER ;
+
+-- LISTA DE MOVIMIENTOS
+DELIMITER $$
+USE `proyecto2bases1`$$
+CREATE PROCEDURE `LISTA_MOVIMIENTOS` ()
+BEGIN
+	SELECT * FROM movimiento;
+END$$
+
+DELIMITER ;
+
+-- MOVIMIENTOS POR FECHA
+USE `proyecto2bases1`;
+DROP procedure IF EXISTS `MOVIMIENTO_FECHA`;
+
+DELIMITER $$
+USE `proyecto2bases1`$$
+CREATE PROCEDURE `MOVIMIENTO_FECHA` (IN FECHA VARCHAR(45))
+BEGIN
+	SELECT * 
+    FROM movimiento 
+    WHERE DATE(movimiento.Fecha_Hora) = '2019-05-09';
+END$$
+
+DELIMITER ;
+
+-- NUEVO CLIENTE
+USE `proyecto2bases1`;
+DROP procedure IF EXISTS `NUEVO_CLIENTE`;
+
+DELIMITER $$
+USE `proyecto2bases1`$$
+CREATE PROCEDURE `NUEVO_CLIENTE` (IN DPI INT(11),IN NOMBRE VARCHAR(45),IN NIT INT(11),IN TELEFONO VARCHAR(15),IN CORREO VARCHAR(100))
+BEGIN
+	INSERT INTO cliente(Dpi,Nombre,Nit,Telefono,Correo)
+    VALUES(DPI,NOMBRE,NIT,TELEFONO,CORREO);
+END$$
+
+DELIMITER 
+
+-- CLIENTES
+USE `proyecto2bases1`;
+DROP procedure IF EXISTS `CLIENTES`;
+
+DELIMITER $$
+USE `proyecto2bases1`$$
+CREATE PROCEDURE `CLIENTES` ()
+BEGIN
+	SELECT * FROM cliente;
+END$$
+
+DELIMITER ;
+
+-- NUEVA FACTURA
+USE `proyecto2bases1`;
+DROP procedure IF EXISTS `NUEVA_FACTURA`;
+
+DELIMITER $$
+USE `proyecto2bases1`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `NUEVA_FACTURA`(IN FECHA varchar(100),IN CLIENTE INT(11), IN NIT INT(11),IN TOTAL INT(11),IN IVA INT(11))
+BEGIN
+	
+	INSERT INTO factura(Fecha_Hora,Cliente,NIT,Total,IVA_Venta)
+    VALUES(FECHA,CLIENTE,NIT,TOTAL,IVA);
+END$$
+
+DELIMITER ;
+
+-- AGREGAR DETALLE DE FACTURA
+USE `proyecto2bases1`;
+DROP procedure IF EXISTS `NUEVO_DETALLE_FACTURA`;
+
+DELIMITER $$
+USE `proyecto2bases1`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `NUEVO_DETALLE_FACTURA`(IN FACTURA INT(11),IN CLIENTE INT(11),IN PRECIO DOUBLE,IN CANTIDAD INT(11),IN PRODUCTO INT(11))
+BEGIN
+	UPDATE inventario
+    SET Unidades_Disponibles = inventario.Unidades_Disponibles - CANTIDAD
+    WHERE inventario.Producto = PRODUCTO;
+
+	INSERT INTO detalle(Factura,Cliente,Precio_Unidad,Cantidad,Producto)
+    VALUES(FACTURA,CLIENTE,PRECIO,CANTIDAD,PRODUCTO);
+END$$
+
+DELIMITER ;
+
+-- RETORNAR FACTURA
+USE `proyecto2bases1`;
+DROP procedure IF EXISTS `RETORNAR_FACTURA`;
+
+DELIMITER $$
+USE `proyecto2bases1`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `RETORNAR_FACTURA`(IN FECHA varchar(100))
+BEGIN
+	SELECT *
+    FROM factura
+    WHERE factura.Fecha_Hora = FECHA;
+END$$
+
+DELIMITER ;
+
+-- GUARDAR VENTA
+USE `proyecto2bases1`;
+DROP procedure IF EXISTS `GUARDAR_VENTA`;
+
+DELIMITER $$
+USE `proyecto2bases1`$$
+CREATE PROCEDURE `GUARDAR_VENTA` (IN NIT INT(11),IN NOMBRE_CLIENTE VARCHAR(100),IN IVA DOUBLE,IN PAGADO DOUBLE,IN USUARIO INT(11),IN CAJA INT(11),IN FACTURA INT(11),IN FECHA VARCHAR(100))
+BEGIN
+	SELECT @MONTO_CAJA := caja.Monto 
+    FROM caja 
+    WHERE caja.Caja = CAJA;
+
+    UPDATE caja 
+    SET Monto = @MONTO_CAJA + PAGADO 
+    WHERE caja.Caja = CAJA;
+    
+    INSERT INTO movimiento(Fecha_Hora,Descripcion,Monto,Saldo_Caja,Usuario,Caja)
+    VALUES(FECHA,'VENTA',PAGADO,@MONTO_CAJA + PAGADO,USUARIO,CAJA);
+
+	SELECT @ID_MOVIMIENTO := movimiento.Movimiento
+    FROM movimiento
+    WHERE movimiento.Fecha_Hora = FECHA;
+
+	INSERT INTO log(Fecha_Hora,Descripcion,Monto_Movimiento,Movimiento,Usuario)
+    VALUES(FECHA,'VENTA',PAGADO,@ID_MOVIMIENTO,USUARIO);
+
+	INSERT INTO venta(NIT,Nombre_Cliente,IVA,Monto_Pagado,Usuario,Caja,Factura)
+    VALUES(NIT,NOMBRE_CLIENTE,IVA,PAGADO,USUARIO,CAJA,FACTURA);
+    
+END$$
+
+DELIMITER ;
+
+-- MAYOR VENTA DEL DIA
+USE `proyecto2bases1`;
+DROP procedure IF EXISTS `MAYOR_VENTA_DIA`;
+
+DELIMITER $$
+USE `proyecto2bases1`$$
+CREATE PROCEDURE `MAYOR_VENTA_DIA` ()
+BEGIN
+		SELECT * 
+		FROM venta AS v
+		WHERE v.Factura IN ( 
+			SELECT f.Factura
+			FROM Factura AS f
+			WHERE DATE(f.Fecha_Hora) = DATE(CURRENT_TIMESTAMP())
+			AND f.Total IN (
+				SELECT MAX(f.Total)
+				FROM Factura AS f
+				WHERE DATE(f.Fecha_Hora) = DATE(CURRENT_TIMESTAMP())
+    )
+);
+END$$
+
+DELIMITER ;
+
+-- HISTORIAL DE CLIENTE
+USE `proyecto2bases1`;
+DROP procedure IF EXISTS `HISTORIAL_CLIENTE`;
+
+DELIMITER $$
+USE `proyecto2bases1`$$
+CREATE PROCEDURE `HISTORIAL_CLIENTE` (IN CLIENTE INT(11))
+BEGIN
+	SELECT *
+    FROM factura AS F
+    WHERE F.Cliente = CLIENTE;
+END$$
+
 DELIMITER ;

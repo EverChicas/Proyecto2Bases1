@@ -32,19 +32,23 @@ namespace Proyecto2.ClienteWeb.Controllers
         [HttpPost]
         public ActionResult MovimientoFecha(string fecha)
         {
-            HttpClient cliente = new HttpClient();
-            cliente.BaseAddress = new Uri("http://localhost:61291/");
-            var request = cliente.GetAsync("api/Movimientos").Result;
-
-            if (request.IsSuccessStatusCode)
+            if(!fecha.Equals(""))
             {
-                var resultString = request.Content.ReadAsStringAsync().Result;
-                var listado = JsonConvert.DeserializeObject<List<Movimiento>>(resultString);
+                var url = "http://localhost:61291/api/Movimientos?";
+                string action = string.Format("fecha={0}", fecha);
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, url + action);
+                HttpResponseMessage response = HttpInstance.GetHttpClientInstance().SendAsync(request).Result;
 
-                return View(listado);
+                if (response.IsSuccessStatusCode)
+                {
+                    var resultString = response.Content.ReadAsStringAsync().Result;
+                    var listado = JsonConvert.DeserializeObject<List<Movimiento>>(resultString);
+
+                    return View("vMovimientosCaja", listado);
+                }
             }
 
-            return View(new List<Movimiento>());
+            return View("vMovimientosCaja", new List<Movimiento>());
         }
 
     }
