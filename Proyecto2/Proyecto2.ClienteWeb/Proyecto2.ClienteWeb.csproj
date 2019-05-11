@@ -146,7 +146,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AbrirCajaController.cs" />
     <Compile Include="Controllers\AdministradorController.cs" />
-    <Compile Include="Controllers\AgregandoDescuentoAProductoController.cs" />
     <Compile Include="Controllers\AgregarTipoPagoController.cs" />
     <Compile Include="Controllers\AsignarProductoEnCategoriaController.cs" />
     <Compile Include="Controllers\CerrarCajaController.cs" />
@@ -155,7 +154,6 @@
     <Compile Include="Controllers\CompraProveedorController.cs" />
     <Compile Include="Controllers\DetallesPorProductoController.cs" />
     <Compile Include="Controllers\EgresoController.cs" />
-    <Compile Include="Controllers\EliminarClienteController.cs" />
     <Compile Include="Controllers\EliminarProveedorController.cs" />
     <Compile Include="Controllers\EliminarTipoCategoriaController.cs" />
     <Compile Include="Controllers\FacturasController.cs" />
