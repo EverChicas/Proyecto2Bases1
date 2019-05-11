@@ -177,21 +177,17 @@
     <Compile Include="Controllers\AsignarProductoEnCategoriaController.cs" />
     <Compile Include="Controllers\CajaController.cs" />
     <Compile Include="Controllers\CerrarCajaController.cs" />
-    <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\CompraProveedorController.cs" />
     <Compile Include="Controllers\DetallesPorProductoController.cs" />
     <Compile Include="Controllers\EliminarTipoCategoriaController.cs" />
-    <Compile Include="Controllers\FacturaFechaController.cs" />
-    <Compile Include="Controllers\GuardarVentaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventarioGeneralController.cs" />
     <Compile Include="Controllers\ListaPagosController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LoginUsuarioController.cs" />
+    <Compile Include="Controllers\LogMovimientosController.cs" />
     <Compile Include="Controllers\MovimientosController.cs" />
-    <Compile Include="Controllers\NuevaFacturaController.cs" />
-    <Compile Include="Controllers\NuevoClienteController.cs" />
     <Compile Include="Controllers\NuevoProductoController.cs" />
-    <Compile Include="Controllers\NuevosDetallesFacturaController.cs" />
     <Compile Include="Controllers\NuevoTipoCategoriaController.cs" />
     <Compile Include="Controllers\NuevoUsuarioController.cs" />
     <Compile Include="Controllers\PagoServicioController.cs" />
@@ -230,7 +226,6 @@
     <Compile Include="Models\Transaccion_Cuenta.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Venta.cs" />
-    <Compile Include="Models\VentaFactura.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -396,6 +391,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Views\LogMovimientos\" />
     <Folder Include="Views\Proveedor\" />
   </ItemGroup>
   <ItemGroup>

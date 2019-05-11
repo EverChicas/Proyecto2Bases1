@@ -17,14 +17,14 @@ namespace Proyecto2.WebApi.Controllers
             List<Caja> lista = new List<Caja>();
             MySqlConnection conection = new MySqlConnection(Conexion.CadenaConexion());
             conection.Open();
-            MySqlCommand command = new MySqlCommand("CAJA_ABRIR",conection);
+            MySqlCommand command = new MySqlCommand("CAJA_ABRIR", conection);
             command.CommandType = System.Data.CommandType.StoredProcedure;
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
                 lista.Add(new Caja(
-                    int.Parse(reader.GetValue(0).ToString()), 
-                    int.Parse(reader.GetValue(1).ToString()),
+                    int.Parse(reader.GetValue(0).ToString()),
+                    double.Parse(reader.GetValue(1).ToString()),
                     int.Parse(reader.GetValue(2).ToString())));
             }
             conection.Close();
@@ -58,7 +58,7 @@ namespace Proyecto2.WebApi.Controllers
             {
                 retornar = new Caja(
                     int.Parse(reader.GetValue(0).ToString()),
-                    int.Parse(reader.GetValue(1).ToString()),
+                    Double.Parse(reader.GetValue(1).ToString()),
                     int.Parse(reader.GetValue(2).ToString()));
             }
             conection.Close();

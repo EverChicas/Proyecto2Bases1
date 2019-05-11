@@ -32,7 +32,7 @@ namespace Proyecto2.WebApi.Controllers
             Boolean resultado = false;
             while (reader.Read())
             {
-                if (int.Parse(reader.GetValue(0).ToString()) == 1)
+                if (reader.GetValue(0).ToString() != null)
                     resultado = true;
             }
             conection.Close();
