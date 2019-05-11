@@ -162,6 +162,7 @@
     <Compile Include="Controllers\EliminarClienteController.cs" />
     <Compile Include="Controllers\EliminarProveedorController.cs" />
     <Compile Include="Controllers\EliminarTipoCategoriaController.cs" />
+    <Compile Include="Controllers\FacturasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventarioGeneralController.cs" />
     <Compile Include="Controllers\ListadoGeneralClientesController.cs" />
@@ -308,6 +309,10 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />

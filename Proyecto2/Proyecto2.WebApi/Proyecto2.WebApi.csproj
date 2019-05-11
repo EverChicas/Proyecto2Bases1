@@ -189,7 +189,6 @@
     <Compile Include="Controllers\InventarioGeneralController.cs" />
     <Compile Include="Controllers\ListadoGeneralClientesController.cs" />
     <Compile Include="Controllers\ListaPagosController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LoginUsuarioController.cs" />
     <Compile Include="Controllers\LogMovimientosController.cs" />
     <Compile Include="Controllers\ModificarClienteController.cs" />
