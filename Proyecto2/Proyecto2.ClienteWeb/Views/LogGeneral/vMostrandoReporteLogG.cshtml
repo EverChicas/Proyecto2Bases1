@@ -1,0 +1,60 @@
+﻿@model List<Proyecto2.ClienteWeb.Models.Log>
+@{
+    ViewBag.Title = "LOG REPORT";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LOG REPORT</title>
+</head>
+<body>
+
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <h1>REPORTE GENERAL DE MOVIMIENTOS</h1> <br />
+        <a href="@Url.Action("vRegresar","Regresar")" class="btn btn-info">Regresar</a>
+    </div>
+    <br />
+    <br />
+    <div id="form-div">
+        <ul class="pagination justify-content-center" style="margin:20px 0">
+            <div class="container">
+
+                <div id="materiales-div">
+                    @using (Html.BeginForm("vMostrandoReporteLogG", "LogGeneral", FormMethod.Post))
+                    {
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <td>Fecha-Hora</td>
+                                    <td>Descripcion</td>
+                                    <td>Monto</td>
+                                    <td>Usuario</td>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                @using (Html.BeginForm())
+                                {
+                                    Proyecto2.ClienteWeb.Controllers.LogGeneralController lista = new Proyecto2.ClienteWeb.Controllers.LogGeneralController();
+                                    foreach (Proyecto2.ClienteWeb.Models.Log logG in lista.getLogGeneral())
+                                    {
+                                        <tr>
+                                            <td>@logG.FechaHora.ToString()</td>
+                                            <td>@logG.Descripcion</td>
+                                            <td>@logG.MontoMovimiento.ToString()</td>
+                                            <td>@logG.Usuario.ToString()</td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    }
+                </div>
+            </div>
+        </ul>
+        <a href="@Url.Action("ExportarPDF","LogGeneral")" class="btn btn-success">Descargar Reporte</a>
+    </div>
+</body>
+</html>
