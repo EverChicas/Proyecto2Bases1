@@ -395,6 +395,7 @@
     <Content Include="Views\Venta\vVender.cshtml" />
     <Content Include="Views\Facturas\vMayorVentaDia.cshtml" />
     <Content Include="Views\Facturas\vFacturas.cshtml" />
+    <Content Include="Views\Cliente\vHistorialCliente.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

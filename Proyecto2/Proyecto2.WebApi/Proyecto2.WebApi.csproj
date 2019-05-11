@@ -183,6 +183,7 @@
     <Compile Include="Controllers\EliminarTipoCategoriaController.cs" />
     <Compile Include="Controllers\FacturaFechaController.cs" />
     <Compile Include="Controllers\GuardarVentaController.cs" />
+    <Compile Include="Controllers\HistorialClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventarioGeneralController.cs" />
     <Compile Include="Controllers\ListaFacturasController.cs" />
