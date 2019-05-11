@@ -173,6 +173,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AbrirCajaController.cs" />
+    <Compile Include="Controllers\AgregarDescuentoAProductoController.cs" />
     <Compile Include="Controllers\AgregarTipoPagoController.cs" />
     <Compile Include="Controllers\AsignarProductoEnCategoriaController.cs" />
     <Compile Include="Controllers\CajaController.cs" />
@@ -180,6 +181,7 @@
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\CompraProveedorController.cs" />
     <Compile Include="Controllers\DetallesPorProductoController.cs" />
+    <Compile Include="Controllers\EliminarClienteController.cs" />
     <Compile Include="Controllers\EliminarTipoCategoriaController.cs" />
     <Compile Include="Controllers\FacturaFechaController.cs" />
     <Compile Include="Controllers\GuardarVentaController.cs" />
@@ -187,9 +189,13 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventarioGeneralController.cs" />
     <Compile Include="Controllers\ListaFacturasController.cs" />
+    <Compile Include="Controllers\ListadoGeneralClientesController.cs" />
     <Compile Include="Controllers\ListaPagosController.cs" />
     <Compile Include="Controllers\LoginUsuarioController.cs" />
     <Compile Include="Controllers\MayorVentaController.cs" />
+    <Compile Include="Controllers\LogMovimientosController.cs" />
+    <Compile Include="Controllers\ModificarClienteController.cs" />
+    <Compile Include="Controllers\ModificarProductoController.cs" />
     <Compile Include="Controllers\MovimientosController.cs" />
     <Compile Include="Controllers\NuevaFacturaController.cs" />
     <Compile Include="Controllers\NuevoClienteController.cs" />
@@ -198,6 +204,7 @@
     <Compile Include="Controllers\NuevoTipoCategoriaController.cs" />
     <Compile Include="Controllers\NuevoUsuarioController.cs" />
     <Compile Include="Controllers\PagoServicioController.cs" />
+    <Compile Include="Controllers\ProductosConDescuentoController.cs" />
     <Compile Include="Controllers\ProductosController.cs" />
     <Compile Include="Controllers\ProductosPorCategoriaController.cs" />
     <Compile Include="Controllers\ProductosSinExistenciaController.cs" />

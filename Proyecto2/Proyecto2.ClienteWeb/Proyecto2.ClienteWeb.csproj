@@ -198,7 +198,6 @@
     <Compile Include="Models\Cuenta.cs" />
     <Compile Include="Models\Descuento.cs" />
     <Compile Include="Models\Detalle.cs" />
-    <Compile Include="Models\DetalleCompra.cs" />
     <Compile Include="Models\Egreso.cs" />
     <Compile Include="Models\Estado_Cuenta.cs" />
     <Compile Include="Models\Factura.cs" />
@@ -214,7 +213,6 @@
     <Compile Include="Models\Transaccion_Cuenta.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Venta.cs" />
-    <Compile Include="Models\VentaFactura.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -378,6 +376,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\vInicio.cshtml" />
     <Content Include="Views\Prueba\Index.cshtml" />
+    <Content Include="Views\Home\vInicio.cshtml" />
     <Content Include="Views\Administrador\vInicioAdministrador.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
@@ -408,15 +407,7 @@
     <Content Include="Views\ModificarProveedor\vModificarProveedor.cshtml" />
     <Content Include="Views\MostrarProveedores\vMostrarProveedores.cshtml" />
     <Content Include="Views\MovimientosCaja\vMovimientosCaja.cshtml" />
-    <Content Include="Views\Cliente\vNuevoCliente.cshtml" />
-    <Content Include="Views\Venta\vRealizarVenta.cshtml" />
-    <Content Include="Views\Venta\vVender.cshtml" />
-    <Content Include="Views\Facturas\vMayorVentaDia.cshtml" />
-    <Content Include="Views\Facturas\vFacturas.cshtml" />
-    <Content Include="Views\Cliente\vHistorialCliente.cshtml" />
-    <Content Include="Views\AgregandoDescuentoAProducto\vAgregandoDescuento.cshtml" />
-    <Content Include="Views\EliminarCliente\vEliminarCliente.cshtml" />
-    <Content Include="Views\ListadoGeneralClientes\vListadoGeneralClientes.cshtml" />
+<<<<<<<<< Temporary merge branch 1
     <Content Include="Views\LogGeneral\vLogGeneral.cshtml" />
     <Content Include="Views\LogGeneral\vMostrandoReporteLogG.cshtml" />
     <Content Include="Views\LogMensual\vLogMensual.cshtml" />
@@ -427,6 +418,18 @@
     <Content Include="Views\ModificarProducto\vModificarProducto.cshtml" />
     <Content Include="Views\NuevoCliente\vNuevoCliente.cshtml" />
     <Content Include="Views\ProductosConDescuento\vProductosConDescuento.cshtml" />
+    <Content Include="Views\AgregandoDescuentoAProducto\vAgregandoDescuento.cshtml" />
+    <Content Include="Views\EliminarCliente\vEliminarCliente.cshtml" />
+    <Content Include="Views\ListadoGeneralClientes\vListadoGeneralClientes.cshtml" />
+    <Content Include="Views\ModificarCliente\vModificarCliente.cshtml" />
+    <Content Include="Views\ModificarProducto\vModificarProducto.cshtml" />
+    <Content Include="Views\NuevoCliente\vNuevoCliente.cshtml" />
+    <Content Include="Views\ProductosConDescuento\vProductosConDescuento.cshtml" />
+    <Content Include="Views\Venta\vRealizarVenta.cshtml" />
+    <Content Include="Views\Venta\vVender.cshtml" />
+    <Content Include="Views\Facturas\vFacturas.cshtml" />
+    <Content Include="Views\Facturas\vMayorVentaDia.cshtml" />
+    <Content Include="Views\Cliente\vHistorialCliente.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
