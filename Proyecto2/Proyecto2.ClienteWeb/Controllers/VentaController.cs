@@ -100,6 +100,7 @@ namespace Proyecto2.ClienteWeb.Controllers
                 List<DetalleCompra> tmpDetalleCompra = Session["DETALLE"] as List<DetalleCompra>;
                 
                 Factura enviar = new Factura();
+                enviar.FechaHora = System.DateTime.Now;
                 enviar.Cliente = tmp.DPI;
                 enviar.NIT = tmp.NIT;
                 enviar.Total = CalcularTotal(tmpDetalleCompra);
@@ -116,13 +117,29 @@ namespace Proyecto2.ClienteWeb.Controllers
                     var factura = JsonConvert.DeserializeObject<Factura>(resultString);
 
                     List<Detalle> detalle = ListaDetalles(tmpDetalleCompra,factura.factura,tmp.DPI);
-
-
+                    
                     HttpClient detalles = new HttpClient();
                     detalles.BaseAddress = new Uri("http://localhost:61291/");
                     var responseDetalles = detalles.PostAsync("api/NuevosDetallesFactura", detalle, new JsonMediaTypeFormatter()).Result;
-                    
 
+                    Venta nueva = new Venta();
+                    nueva.venta = 0;
+                    nueva.NIT = tmp.NIT;
+                    nueva.NombreCliente = tmp.Nombre;
+                    nueva.MontoPagado = CalcularTotal(tmpDetalleCompra);
+                    nueva.Usuario = usuario.Id_Usuario;
+                    nueva.Caja = cajaAbierta.caja;
+                    nueva.Factura = factura.factura;
+
+                    VentaFactura detalleVenta = new VentaFactura();
+                    detalleVenta.venta = nueva;
+                    detalleVenta.factura = factura;
+
+                    HttpClient venta = new HttpClient();
+                    venta.BaseAddress = new Uri("http://localhost:61291/");
+                    var responseVenta = venta.PostAsync("api/GuardarVenta",detalleVenta, new JsonMediaTypeFormatter()).Result;
+
+                    Session["DETALLE"] = null;
                 }
 
             }

@@ -34,13 +34,13 @@
             <a href="@Url.Action("vRegresar", "Regresar")" class="btn btn-info">Regresar</a>
         </div>
 
-        using (Html.BeginForm("agregarProducto", "Venta", FormMethod.Post))
+        using (Html.BeginForm("realizarFactura", "Venta", FormMethod.Post))
         {
         <div class="container">
             <div class="row">
                 <div class="col-md-10">
                     <div class="form-group">
-                        <label for="Cliente">Cliente:</label>
+                        <label for="cliente">Cliente:</label>
                         <select id="cliente" name="cliente">
                             @if (Session["LISTA_CLIENTES"] != null)
                             {
@@ -53,7 +53,7 @@
                         </select>
                     </div>
                     <div>
-                        <a href="@Url.Action("realizarFactura","Venta")" class="btn btn-danger">Terminar venta</a>
+                        <input type="submit" name="enviar" value="Terminar venta" />
                     </div>
                 </div>
             </div>

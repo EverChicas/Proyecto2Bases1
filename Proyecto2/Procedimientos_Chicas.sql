@@ -165,17 +165,11 @@ DROP procedure IF EXISTS `NUEVA_FACTURA`;
 
 DELIMITER $$
 USE `proyecto2bases1`$$
-CREATE PROCEDURE `NUEVA_FACTURA` (IN CLIENTE INT(11), IN NIT INT(11),IN TOTAL INT(11),IN IVA INT(11))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `NUEVA_FACTURA`(IN FECHA varchar(100),IN CLIENTE INT(11), IN NIT INT(11),IN TOTAL INT(11),IN IVA INT(11))
 BEGIN
-	SELECT @FECHA := CURRENT_TIMESTAMP();
 	
 	INSERT INTO factura(Fecha_Hora,Cliente,NIT,Total,IVA_Venta)
     VALUES(FECHA,CLIENTE,NIT,TOTAL,IVA);
-    
-    SELECT *
-    FROM factura
-    WHERE factura.Fecha_Hora = FECHA;
-    
 END$$
 
 DELIMITER ;
@@ -194,6 +188,54 @@ BEGIN
 
 	INSERT INTO detalle(Factura,Cliente,Precio_Unidad,Cantidad,Producto)
     VALUES(FACTURA,CLIENTE,PRECIO,CANTIDAD,PRODUCTO);
+END$$
+
+DELIMITER ;
+
+-- RETORNAR FACTURA
+USE `proyecto2bases1`;
+DROP procedure IF EXISTS `RETORNAR_FACTURA`;
+
+DELIMITER $$
+USE `proyecto2bases1`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `RETORNAR_FACTURA`(IN FECHA varchar(100))
+BEGIN
+	SELECT *
+    FROM factura
+    WHERE factura.Fecha_Hora = FECHA;
+END$$
+
+DELIMITER ;
+
+-- GUARDAR VENTA
+USE `proyecto2bases1`;
+DROP procedure IF EXISTS `GUARDAR_VENTA`;
+
+DELIMITER $$
+USE `proyecto2bases1`$$
+CREATE PROCEDURE `GUARDAR_VENTA` (IN NIT INT(11),IN NOMBRE_CLIENTE VARCHAR(100),IN IVA DOUBLE,IN PAGADO DOUBLE,IN USUARIO INT(11),IN CAJA INT(11),IN FACTURA INT(11),IN FECHA VARCHAR(100))
+BEGIN
+	SELECT @MONTO_CAJA := caja.Monto 
+    FROM caja 
+    WHERE caja.Caja = CAJA;
+
+    UPDATE caja 
+    SET Monto = @MONTO_CAJA + PAGADO 
+    WHERE caja.Caja = CAJA;
+    
+    INSERT INTO movimiento(Fecha_Hora,Descripcion,Monto,Saldo_Caja,Usuario,Caja)
+    VALUES(FECHA,'VENTA',PAGADO,@MONTO_CAJA + PAGADO,USUARIO,CAJA);
+
+	SELECT @ID_MOVIMIENTO := movimiento.Movimiento
+    FROM movimiento
+    WHERE movimiento.Fecha_Hora = FECHA;
+
+	INSERT INTO log(Fecha_Hora,Descripcion,Monto_Movimiento,Movimiento,Usuario)
+    VALUES(FECHA,'VENTA',PAGADO,@ID_MOVIMIENTO,USUARIO);
+
+	INSERT INTO venta(NIT,Nombre_Cliente,IVA,Monto_Pagado,Usuario,Caja,Factura)
+    VALUES(NIT,NOMBRE_CLIENTE,IVA,PAGADO,USUARIO,CAJA,FACTURA);
+    
 END$$
 
 DELIMITER ;
