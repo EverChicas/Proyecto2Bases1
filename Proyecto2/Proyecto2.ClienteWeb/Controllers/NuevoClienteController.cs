@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 using Proyecto2.ClienteWeb.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -9,23 +9,23 @@ using System.Web.Mvc;
 
 namespace Proyecto2.ClienteWeb.Controllers
 {
-    public class NuevoProductoController : Controller
+    public class NuevoClienteController : Controller
     {
-        // GET: NuevoProducto
-        public ActionResult vNuevoProducto()
+        // GET: NuevoCliente
+        public ActionResult vNuevoCliente()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult modificandoProducto(string nombre, double precio, int unidades_disponibles)
+        public ActionResult creandoNuevoCliente(int dpi, string nombre, int nit, string telefono, string correo)
         {
             Usuario userLogueado = Session["USUARIO"] as Usuario;
-            var url = "http://localhost:61291/api/NuevoProducto?";
-            string action = string.Format("nombre={0}&precio={1}&unidades_disponibles={2}", nombre, precio, unidades_disponibles);
+            var url = "http://localhost:61291/api/NuevoCliente?";
+            string action = string.Format("dpi={0}&nombre={1}&nit={2}&telefono={3}&correo={4}", dpi, nombre, nit, telefono, correo);
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, url + action);
             HttpResponseMessage response = HttpInstance.GetHttpClientInstance().SendAsync(request).Result;
-            if (response.IsSuccessStatusCode)
+            if(response.IsSuccessStatusCode)
             {
                 var responsecontent = response.Content.ReadAsStringAsync().Result;
                 var agregado = JsonConvert.DeserializeObject<Boolean>(responsecontent.ToString());
@@ -37,7 +37,8 @@ namespace Proyecto2.ClienteWeb.Controllers
                         return RedirectToAction("vInicioVendedor", "Vendedor");
                 }
             }
-            return RedirectToAction("vNuevoProducto", "NuevoProducto");
+            return RedirectToAction("vNuevoCliente", "NuevoCliente");
         }
+
     }
 }
