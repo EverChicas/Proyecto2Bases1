@@ -86,7 +86,16 @@
             </ul>
         </div>
         <div>
-
+            using (Html.BeginForm("MovimientoFecha", "MovimientoCaja", FormMethod.Post))
+            {
+            <div id="SeleccionarFecha">
+                <div class="form-group">
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" name="fecha" value="" />
+                </div>
+                <input id="btn" name="btn" type="submit" value="Seleccionar" class="btn btn-primary" />
+            </div>
+            }
         </div>
     }
     else
