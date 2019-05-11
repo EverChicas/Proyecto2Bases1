@@ -1,0 +1,58 @@
+﻿using Newtonsoft.Json;
+using Proyecto2.ClienteWeb.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Formatting;
+using System.Web;
+using System.Web.Mvc;
+
+namespace Proyecto2.ClienteWeb.Controllers
+{
+    public class ClienteController : Controller
+    {
+        // GET: Cliente
+        public ActionResult vNuevoCliente()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult agregarNuevoCliente(int dpi,string nombre,int nit,string telefono,string correo)
+        {
+            Usuario usuario = Session["USUARIO"] as Usuario;
+
+            Cliente enviar = new Cliente();
+            enviar.DPI = dpi;
+            enviar.Nombre = nombre;
+            enviar.NIT = nit;
+            enviar.Telefono = telefono;
+            enviar.Correo = correo;
+
+            HttpClient cliente = new HttpClient();
+            cliente.BaseAddress = new Uri("http://localhost:61291/");
+            var response = cliente.PostAsync("api/NuevoCliente", enviar, new JsonMediaTypeFormatter()).Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                switch (usuario.Rol_Usuario)
+                {
+                    case 1:
+                        return RedirectToAction("vInicioAdministrador", "Administrador", usuario.Id_Usuario);
+                    case 2:
+                        return RedirectToAction("vInicioVendedor", "Vendedor", usuario.Id_Usuario);
+                    default:
+                        return RedirectToAction("vInicio", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("vCliente", "Cliente", usuario.Id_Usuario);
+            }
+        }
+
+    }
+
+    
+}

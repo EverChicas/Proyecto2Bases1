@@ -150,6 +150,7 @@
     <Compile Include="Controllers\AsignarProductoEnCategoriaController.cs" />
     <Compile Include="Controllers\CerrarCajaController.cs" />
     <Compile Include="Controllers\CerrarSesionController.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\CompraProveedorController.cs" />
     <Compile Include="Controllers\DetallesPorProductoController.cs" />
     <Compile Include="Controllers\EgresoController.cs" />
@@ -169,6 +170,7 @@
     <Compile Include="Controllers\PruebaController.cs" />
     <Compile Include="Controllers\RegresarController.cs" />
     <Compile Include="Controllers\VendedorController.cs" />
+    <Compile Include="Controllers\VentaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -182,6 +184,7 @@
     <Compile Include="Models\Cuenta.cs" />
     <Compile Include="Models\Descuento.cs" />
     <Compile Include="Models\Detalle.cs" />
+    <Compile Include="Models\DetalleCompra.cs" />
     <Compile Include="Models\Egreso.cs" />
     <Compile Include="Models\Estado_Cuenta.cs" />
     <Compile Include="Models\Factura.cs" />
@@ -385,6 +388,9 @@
     <Content Include="Views\ModificarProveedor\vModificarProveedor.cshtml" />
     <Content Include="Views\MostrarProveedores\vMostrarProveedores.cshtml" />
     <Content Include="Views\MovimientosCaja\vMovimientosCaja.cshtml" />
+    <Content Include="Views\Cliente\vNuevoCliente.cshtml" />
+    <Content Include="Views\Venta\vRealizarVenta.cshtml" />
+    <Content Include="Views\Venta\vVender.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
