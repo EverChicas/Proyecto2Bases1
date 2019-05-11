@@ -54,10 +54,6 @@
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -150,39 +146,32 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AbrirCajaController.cs" />
     <Compile Include="Controllers\AdministradorController.cs" />
-    <Compile Include="Controllers\AgregandoDescuentoAProductoController.cs" />
     <Compile Include="Controllers\AgregarTipoPagoController.cs" />
     <Compile Include="Controllers\AsignarProductoEnCategoriaController.cs" />
     <Compile Include="Controllers\CerrarCajaController.cs" />
     <Compile Include="Controllers\CerrarSesionController.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\CompraProveedorController.cs" />
     <Compile Include="Controllers\DetallesPorProductoController.cs" />
     <Compile Include="Controllers\EgresoController.cs" />
-    <Compile Include="Controllers\EliminarClienteController.cs" />
     <Compile Include="Controllers\EliminarProveedorController.cs" />
     <Compile Include="Controllers\EliminarTipoCategoriaController.cs" />
+    <Compile Include="Controllers\FacturasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventarioGeneralController.cs" />
-    <Compile Include="Controllers\ListadoGeneralClientesController.cs" />
-    <Compile Include="Controllers\LogGeneralController.cs" />
-    <Compile Include="Controllers\LogMensualController.cs" />
-    <Compile Include="Controllers\LogPorFechaController.cs" />
-    <Compile Include="Controllers\ModificarClienteController.cs" />
-    <Compile Include="Controllers\ModificarProductoController.cs" />
     <Compile Include="Controllers\ModificarProveedorController.cs" />
     <Compile Include="Controllers\MostrarProveedoresController.cs" />
     <Compile Include="Controllers\MovimientosCajaController.cs" />
-    <Compile Include="Controllers\NuevoClienteController.cs" />
     <Compile Include="Controllers\NuevoProductoController.cs" />
     <Compile Include="Controllers\NuevoProveedorController.cs" />
     <Compile Include="Controllers\NuevoTipoCategoriaController.cs" />
     <Compile Include="Controllers\NuevoUsuarioController.cs" />
-    <Compile Include="Controllers\ProductosConDescuentoController.cs" />
     <Compile Include="Controllers\ProductosPorCategoriaController.cs" />
     <Compile Include="Controllers\ProductosSinExistenciaController.cs" />
     <Compile Include="Controllers\PruebaController.cs" />
     <Compile Include="Controllers\RegresarController.cs" />
     <Compile Include="Controllers\VendedorController.cs" />
+    <Compile Include="Controllers\VentaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -196,6 +185,7 @@
     <Compile Include="Models\Cuenta.cs" />
     <Compile Include="Models\Descuento.cs" />
     <Compile Include="Models\Detalle.cs" />
+    <Compile Include="Models\DetalleCompra.cs" />
     <Compile Include="Models\Egreso.cs" />
     <Compile Include="Models\Estado_Cuenta.cs" />
     <Compile Include="Models\Factura.cs" />
@@ -211,6 +201,7 @@
     <Compile Include="Models\Transaccion_Cuenta.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Venta.cs" />
+    <Compile Include="Models\VentaFactura.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -326,7 +317,6 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="App_Browsers\qt.browser" />
     <None Include="bin\Proyecto2.ClienteWeb.dll.config" />
     <Content Include="bin\roslyn\csc.exe.config" />
     <Content Include="bin\roslyn\csc.rsp" />
@@ -370,7 +360,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\vInicio.cshtml" />
     <Content Include="Views\Prueba\Index.cshtml" />
-    <Content Include="Views\Home\vInicio.cshtml" />
     <Content Include="Views\Administrador\vInicioAdministrador.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
@@ -401,19 +390,12 @@
     <Content Include="Views\ModificarProveedor\vModificarProveedor.cshtml" />
     <Content Include="Views\MostrarProveedores\vMostrarProveedores.cshtml" />
     <Content Include="Views\MovimientosCaja\vMovimientosCaja.cshtml" />
-    <Content Include="Views\LogGeneral\vLogGeneral.cshtml" />
-    <Content Include="Views\LogGeneral\vMostrandoReporteLogG.cshtml" />
-    <Content Include="Views\LogMensual\vLogMensual.cshtml" />
-    <Content Include="Views\LogMensual\vMostrandoReporteLogM.cshtml" />
-    <Content Include="Views\LogPorFecha\vLogPorFecha.cshtml" />
-    <Content Include="Views\LogPorFecha\vMostrandoReporteLogF.cshtml" />
-    <Content Include="Views\AgregandoDescuentoAProducto\vAgregandoDescuento.cshtml" />
-    <Content Include="Views\EliminarCliente\vEliminarCliente.cshtml" />
-    <Content Include="Views\ListadoGeneralClientes\vListadoGeneralClientes.cshtml" />
-    <Content Include="Views\ModificarCliente\vModificarCliente.cshtml" />
-    <Content Include="Views\ModificarProducto\vModificarProducto.cshtml" />
-    <Content Include="Views\NuevoCliente\vNuevoCliente.cshtml" />
-    <Content Include="Views\ProductosConDescuento\vProductosConDescuento.cshtml" />
+    <Content Include="Views\Cliente\vNuevoCliente.cshtml" />
+    <Content Include="Views\Venta\vRealizarVenta.cshtml" />
+    <Content Include="Views\Venta\vVender.cshtml" />
+    <Content Include="Views\Facturas\vMayorVentaDia.cshtml" />
+    <Content Include="Views\Facturas\vFacturas.cshtml" />
+    <Content Include="Views\Cliente\vHistorialCliente.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

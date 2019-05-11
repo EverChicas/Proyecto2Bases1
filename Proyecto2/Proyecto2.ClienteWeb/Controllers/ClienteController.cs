@@ -52,7 +52,43 @@ namespace Proyecto2.ClienteWeb.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult vHistorialCliente()
+        {
+            HttpClient tmpCliente = new HttpClient();
+            tmpCliente.BaseAddress = new Uri("http://localhost:61291/");
+            var request = tmpCliente.GetAsync("api/Clientes").Result;
+
+            if (request.IsSuccessStatusCode)
+            {
+                var resultString = request.Content.ReadAsStringAsync().Result;
+                var listado = JsonConvert.DeserializeObject<List<Cliente>>(resultString);
+
+                Session["LISTA_CLIENTES"] = listado;
+            }
+            return View("vHistorialCliente");
+        }
+
+        [HttpPost]
+        public ActionResult historialCliente(int cliente)
+        {
+            var url = "http://localhost:61291/api/HistorialCliente?";
+            string action = string.Format("cliente={0}", cliente);
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, url + action);
+            HttpResponseMessage response = HttpInstance.GetHttpClientInstance().SendAsync(request).Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var resultString = response.Content.ReadAsStringAsync().Result;
+                List<Factura> tmp = JsonConvert.DeserializeObject<List<Factura>>(resultString);
+                Session["LISTA_COMPRAS_CLIENTE"] = tmp;
+            }
+
+            return View("vHistorialCliente");
+        }
+        
+
     }
 
-    
+
 }

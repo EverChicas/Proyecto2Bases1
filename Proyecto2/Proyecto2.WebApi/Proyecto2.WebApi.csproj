@@ -183,11 +183,13 @@
     <Compile Include="Controllers\EliminarTipoCategoriaController.cs" />
     <Compile Include="Controllers\FacturaFechaController.cs" />
     <Compile Include="Controllers\GuardarVentaController.cs" />
+    <Compile Include="Controllers\HistorialClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventarioGeneralController.cs" />
+    <Compile Include="Controllers\ListaFacturasController.cs" />
     <Compile Include="Controllers\ListaPagosController.cs" />
     <Compile Include="Controllers\LoginUsuarioController.cs" />
-    <Compile Include="Controllers\LogMovimientosController.cs" />
+    <Compile Include="Controllers\MayorVentaController.cs" />
     <Compile Include="Controllers\MovimientosController.cs" />
     <Compile Include="Controllers\NuevaFacturaController.cs" />
     <Compile Include="Controllers\NuevoClienteController.cs" />
@@ -397,7 +399,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Views\LogMovimientos\" />
     <Folder Include="Views\Proveedor\" />
   </ItemGroup>
   <ItemGroup>
