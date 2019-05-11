@@ -123,13 +123,13 @@
                 <table>
                     <tr>
                         <td></td>
-                        <td><h4>Actividades</h4></td>
+                        <td><h4>Log de Movimientos</h4></td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td><button type="submit" class="btn btn-success">Todas</button></td>
-                        <td><button type="submit" class="btn btn-success">Por Mes</button></td>
-                        <td><button type="submit" class="btn btn-success">Por Año</button></td>
+                        <td><a href="@Url.Action("vLogGeneral","LogGeneral")" class="btn btn-success">Reporte General</a></td>
+                        <td><a href="@Url.Action("vLogMensual","LogMensual")" class="btn btn-success">Movimientos Mensuales</a></td>
+                        <td><a href="@Url.Action("vLogPorFecha","LogPorFecha")" class="btn btn-success">Movimientos Por Fecha</a></td>
                     </tr>
                 </table>
             </div>
@@ -189,8 +189,14 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td><a href="@Url.Action("vNuevoCliente","Cliente")" class="btn btn-danger">Agregar</a></td>
+                        <td><a href="@Url.Action("vNuevoCliente","NuevoCliente")" class="btn btn-danger">Agregar</a></td>
+                        <td><a href="@Url.Action("vModificarCliente","ModificarCliente")" class="btn btn-danger">Modificar</a></td>
+                        <td><a href="@Url.Action("vEliminarCliente","EliminarCliente")" class="btn btn-danger">Eliminar</a></td>
                         <td><a href="@Url.Action("vHistorialCliente","Cliente")" class="btn btn-danger">Historial de cliente</a></td>
+                        <td><button type="submit" class="btn btn-danger">Deudas por cliente</button></td>
+                        <td><button type="submit" class="btn btn-danger">Abonos por cliente</button></td>
+                        <td><button type="submit" class="btn btn-danger">Registrar Abono</button></td>
+                        <td><a href="@Url.Action("vListadoGeneralClientes","ListadoGeneralClientes")" class="btn btn-danger">Lista Clientes</a></td>
                     </tr>
                 </table>
             </div>
@@ -230,11 +236,12 @@
                     </tr>
                     <tr>
                         <td><a href="@Url.Action("vNuevoProducto", "NuevoProducto")" class="btn btn-success">Crear</a></td>
+                        <td><a href="@Url.Action("vModificarProducto", "ModificarProducto")" class="btn btn-success">Modificar</a></td>
+                        <td><a href="@Url.Action("vAgregandoDescuento", "AgregandoDescuentoAProducto")" class="btn btn-success">Agregar Descuento a Producto</a></td>
                         <td><a href="@Url.Action("vInventarioGeneral", "InventarioGeneral")" class="btn btn-success">Inventario General</a></td>
-                        <td><a href="@Url.Action("vDetallesPorProducto", "DetallesPorProducto")" class="btn btn-success">Detalles por Producto</a></td>
-                        <td><button type="submit" class="btn btn-success">Productos más Vendidos</button></td>
-                        <td><a href="@Url.Action("vProductosSinExistencia", "ProductosSinExistencia")" class="btn btn-success">Productos sin existencia</a></td>
-                        <td><button type="submit" class="btn btn-success">Productos más comprados</button></td>
+                        <td><a href="@Url.Action("vDetallesPorProducto", "DetallesPorProducto")" class="btn btn-success">Detalles por Producto</a></td>                      
+                        <td><a href="@Url.Action("vProductosSinExistencia", "ProductosSinExistencia")" class="btn btn-success">Productos sin existencia</a></td>                        
+                        <td><a href="@Url.Action("vProductosConDescuento", "ProductosConDescuento")" class="btn btn-success">Productos con descuento</a></td>                        
                     </tr>
                 </table>
             </div>
