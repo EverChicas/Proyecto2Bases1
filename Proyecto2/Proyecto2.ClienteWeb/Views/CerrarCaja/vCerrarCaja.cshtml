@@ -108,27 +108,37 @@
                     <h1>Abrir Caja</h1>
                     <p>@userLogueado.Nombre - USUARIO: @userLogueado.Id_Usuario.ToString()</p>
                 </div>
-
-                using (Html.BeginForm("CerrarCajaAbierta", "CerrarCaja", FormMethod.Post))
-                {
-                    <div id="CerrarCaja">
-                        <div class="form-group">
-                            <div>
-                                <label for="Monto_Numero">Monto:</label>
-                                <input type="text" name="MontoLetras" value="@cajaAbierta.Monto"/>
+                
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            @using (Html.BeginForm("CerrarCajaAbierta", "CerrarCaja", FormMethod.Post))
+                            {
+                            <div id="CerrarCaja">
+                                <div class="form-group">
+                                    <div>
+                                        <label for="Monto_Numero">Monto:</label>
+                                        <input type="text" name="MontoLetras" value="@cajaAbierta.Monto" />
+                                    </div>
+                                    <div>
+                                        <label for="Monto_letras">Monto:</label>
+                                        <input type="text" name="MontoLetras" value="" placeholder="cien" />
+                                    </div>
+                                    <div>
+                                        <label for="Observacion">Observacion:</label>
+                                        <input type="text" name="Observacion" value="" placeholder="El estado de la caja es bueno" />
+                                    </div>
+                                </div>
+                                <input id="btn" name="btn" type="submit" value="Cerrar" class="btn btn-primary" />
                             </div>
-                            <div>
-                                <label for="Monto_letras">Monto:</label>
-                                <input type="text" name="MontoLetras" value="" placeholder="cien" />
-                            </div>
-                            <div>
-                                <label for="Observacion">Observacion:</label>
-                                <input type="text" name="Observacion" value="" placeholder="El estado de la caja es bueno"/>
-                            </div>
+                            }
                         </div>
-                        <input id="btn" name="btn" type="submit" value="Cerrar" class="btn btn-primary" />
+                        <div class="col-md-4"></div>
                     </div>
-                }
+                </div>
+
+                
 
 
                 <div id="btn10-div">

@@ -103,21 +103,34 @@
             @if (Session["USUARIO"] != null)
             {
                 Proyecto2.ClienteWeb.Models.Usuario userLogueado = Session["USUARIO"] as Proyecto2.ClienteWeb.Models.Usuario;
+            <div class="container">
                 <div class="jumbotron text-center" style="margin-bottom:0">
                     <h1>Abrir Caja</h1>
                     <p>@userLogueado.Nombre - USUARIO: @userLogueado.Id_Usuario.ToString()</p>
                 </div>
-
-                using (Html.BeginForm("AgregarPago", "AgregarTipoPago", FormMethod.Post))
-                {
-                    <div id="AgregarTipoPago">
-                        <div class="form-group">
-                            <label for="NombrePago">Nombre de pago:</label>
-                            <input type="text" name="NombrePago" value="" placeholder="Luz" />
+            </div>
+            
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            @using (Html.BeginForm("AgregarPago", "AgregarTipoPago", FormMethod.Post))
+                            {
+                            <div id="AgregarTipoPago">
+                                <div class="form-group">
+                                    <label for="NombrePago">Nombre de pago:</label>
+                                    <input type="text" name="NombrePago" value="" placeholder="Luz" />
+                                </div>
+                                <input id="btn" name="btn" type="submit" value="Agregar" class="btn btn-primary" />
+                            </div>
+                            }
                         </div>
-                        <input id="btn" name="btn" type="submit" value="Agregar" class="btn btn-primary" />
+                        <div class="col-md-4"></div>
                     </div>
-                }
+                </div>
+
+
+                
 
 
                 <div id="btn10-div">

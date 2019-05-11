@@ -56,10 +56,31 @@
             <p>@userLogueado.Nombre - USUARIO: @userLogueado.Id_Usuario.ToString()</p>
             <a href="@Url.Action("vRegresar","Regresar")" class="btn btn-info">Regresar</a>
         </div>
-        <div id="form-div">
-            <ul class="pagination justify-content-center" style="margin:20px 0">
-                <div class="container">
-                    <table>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    @using (Html.BeginForm("MovimientoFecha", "MovimientosCaja", FormMethod.Post))
+                    {
+                        <div id="SeleccionarFecha">
+                            <div class="form-group">
+                                <label for="fecha">Fecha:</label>
+                                <input type="date" name="fecha" value="" />
+                            </div>
+                            <input id="btn" name="btn" type="submit" value="Seleccionar" class="btn btn-primary" />
+                        </div>
+                    }
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <table class="table table-hover">
                         <tr>
                             <th>ID</th>
                             <th>FECHA</th>
@@ -71,32 +92,23 @@
                         </tr>
                         @foreach (Movimiento item in Model)
                         {
-                        <tr>
-                            <td>@item.movimiento</td>
-                            <td>@item.FechaHora</td>
-                            <td>@item.Descripcion</td>
-                            <td>@item.Monto</td>
-                            <td>@item.SaldoCaja</td>
-                            <td>@item.Usuario</td>
-                            <td>@item.Caja</td>
-                        </tr>
+                            <tr>
+                                <td>@item.movimiento</td>
+                                <td>@item.FechaHora</td>
+                                <td>@item.Descripcion</td>
+                                <td>@item.Monto</td>
+                                <td>@item.SaldoCaja</td>
+                                <td>@item.Usuario</td>
+                                <td>@item.Caja</td>
+                            </tr>
                         }
                     </table>
                 </div>
-            </ul>
-        </div>
-        <div>
-            using (Html.BeginForm("MovimientoFecha", "MovimientoCaja", FormMethod.Post))
-            {
-            <div id="SeleccionarFecha">
-                <div class="form-group">
-                    <label for="fecha">Fecha:</label>
-                    <input type="date" name="fecha" value="" />
-                </div>
-                <input id="btn" name="btn" type="submit" value="Seleccionar" class="btn btn-primary" />
+                <div class="col-md-2"></div>
             </div>
-            }
         </div>
+
+
     }
     else
     {
